@@ -15,6 +15,13 @@
 		04E438B823049A8B0056E4C5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04E438B623049A8B0056E4C5 /* LaunchScreen.storyboard */; };
 		04E438C323049A8B0056E4C5 /* ViperMoviesssDBTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E438C223049A8B0056E4C5 /* ViperMoviesssDBTests.swift */; };
 		04E438CE23049A8B0056E4C5 /* ViperMoviesssDBUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E438CD23049A8B0056E4C5 /* ViperMoviesssDBUITests.swift */; };
+		04E438E323049DF80056E4C5 /* MovieHomeScreenViewUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E438DC23049DF80056E4C5 /* MovieHomeScreenViewUI.swift */; };
+		04E438E423049DF80056E4C5 /* MovieHomeScreenPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E438DD23049DF80056E4C5 /* MovieHomeScreenPresenter.swift */; };
+		04E438E523049DF80056E4C5 /* MovieHomeScreenRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E438DE23049DF80056E4C5 /* MovieHomeScreenRouter.swift */; };
+		04E438E623049DF80056E4C5 /* MovieHomeScreenContracts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E438DF23049DF80056E4C5 /* MovieHomeScreenContracts.swift */; };
+		04E438E723049DF80056E4C5 /* MovieHomeScreenInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E438E023049DF80056E4C5 /* MovieHomeScreenInteractor.swift */; };
+		04E438E823049DF80056E4C5 /* MovieHomeScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E438E123049DF80056E4C5 /* MovieHomeScreenView.swift */; };
+		04E438E923049DF80056E4C5 /* MovieHomeScreenEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E438E223049DF80056E4C5 /* MovieHomeScreenEntity.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +56,13 @@
 		04E438C923049A8B0056E4C5 /* ViperMoviesssDBUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ViperMoviesssDBUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		04E438CD23049A8B0056E4C5 /* ViperMoviesssDBUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViperMoviesssDBUITests.swift; sourceTree = "<group>"; };
 		04E438CF23049A8B0056E4C5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		04E438DC23049DF80056E4C5 /* MovieHomeScreenViewUI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieHomeScreenViewUI.swift; sourceTree = "<group>"; };
+		04E438DD23049DF80056E4C5 /* MovieHomeScreenPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieHomeScreenPresenter.swift; sourceTree = "<group>"; };
+		04E438DE23049DF80056E4C5 /* MovieHomeScreenRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieHomeScreenRouter.swift; sourceTree = "<group>"; };
+		04E438DF23049DF80056E4C5 /* MovieHomeScreenContracts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieHomeScreenContracts.swift; sourceTree = "<group>"; };
+		04E438E023049DF80056E4C5 /* MovieHomeScreenInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieHomeScreenInteractor.swift; sourceTree = "<group>"; };
+		04E438E123049DF80056E4C5 /* MovieHomeScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieHomeScreenView.swift; sourceTree = "<group>"; };
+		04E438E223049DF80056E4C5 /* MovieHomeScreenEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieHomeScreenEntity.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,10 +113,11 @@
 		04E438A923049A8A0056E4C5 /* ViperMoviesssDB */ = {
 			isa = PBXGroup;
 			children = (
+				04E438DB23049D280056E4C5 /* Resources */,
+				04E438EA23049E160056E4C5 /* MovieHomeScreen */,
 				04E438AA23049A8A0056E4C5 /* AppDelegate.swift */,
 				04E438AC23049A8A0056E4C5 /* ViewController.swift */,
 				04E438AE23049A8A0056E4C5 /* Main.storyboard */,
-				04E438B423049A8B0056E4C5 /* Assets.xcassets */,
 				04E438B623049A8B0056E4C5 /* LaunchScreen.storyboard */,
 				04E438B923049A8B0056E4C5 /* Info.plist */,
 				04E438B123049A8A0056E4C5 /* ViperMoviesssDB.xcdatamodeld */,
@@ -126,6 +141,28 @@
 				04E438CF23049A8B0056E4C5 /* Info.plist */,
 			);
 			path = ViperMoviesssDBUITests;
+			sourceTree = "<group>";
+		};
+		04E438DB23049D280056E4C5 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				04E438B423049A8B0056E4C5 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		04E438EA23049E160056E4C5 /* MovieHomeScreen */ = {
+			isa = PBXGroup;
+			children = (
+				04E438E023049DF80056E4C5 /* MovieHomeScreenInteractor.swift */,
+				04E438E123049DF80056E4C5 /* MovieHomeScreenView.swift */,
+				04E438E223049DF80056E4C5 /* MovieHomeScreenEntity.swift */,
+				04E438DC23049DF80056E4C5 /* MovieHomeScreenViewUI.swift */,
+				04E438DD23049DF80056E4C5 /* MovieHomeScreenPresenter.swift */,
+				04E438DE23049DF80056E4C5 /* MovieHomeScreenRouter.swift */,
+				04E438DF23049DF80056E4C5 /* MovieHomeScreenContracts.swift */,
+			);
+			path = MovieHomeScreen;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -259,9 +296,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04E438E323049DF80056E4C5 /* MovieHomeScreenViewUI.swift in Sources */,
 				04E438AD23049A8A0056E4C5 /* ViewController.swift in Sources */,
+				04E438E623049DF80056E4C5 /* MovieHomeScreenContracts.swift in Sources */,
+				04E438E823049DF80056E4C5 /* MovieHomeScreenView.swift in Sources */,
+				04E438E523049DF80056E4C5 /* MovieHomeScreenRouter.swift in Sources */,
 				04E438B323049A8A0056E4C5 /* ViperMoviesssDB.xcdatamodeld in Sources */,
 				04E438AB23049A8A0056E4C5 /* AppDelegate.swift in Sources */,
+				04E438E723049DF80056E4C5 /* MovieHomeScreenInteractor.swift in Sources */,
+				04E438E923049DF80056E4C5 /* MovieHomeScreenEntity.swift in Sources */,
+				04E438E423049DF80056E4C5 /* MovieHomeScreenPresenter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
