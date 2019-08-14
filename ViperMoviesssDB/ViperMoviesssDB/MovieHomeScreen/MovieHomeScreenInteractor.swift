@@ -10,5 +10,9 @@ import UIKit
 
 /// MovieHomeScreen Module Interactor
 class MovieHomeScreenInteractor: MovieHomeScreenInteractorProtocol {
+    func fetch(objectFor presenter: MovieHomeScreenPresenterProtocol) {
+        <#code#>
+    }
+    
 
 }
