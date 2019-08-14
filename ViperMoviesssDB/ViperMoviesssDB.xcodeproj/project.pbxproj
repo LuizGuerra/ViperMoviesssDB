@@ -114,13 +114,13 @@
 			isa = PBXGroup;
 			children = (
 				04E438DB23049D280056E4C5 /* Resources */,
+				04E438EA23049E160056E4C5 /* MovieHomeScreen */,
 				04E438AA23049A8A0056E4C5 /* AppDelegate.swift */,
 				04E438AC23049A8A0056E4C5 /* ViewController.swift */,
 				04E438AE23049A8A0056E4C5 /* Main.storyboard */,
 				04E438B623049A8B0056E4C5 /* LaunchScreen.storyboard */,
 				04E438B923049A8B0056E4C5 /* Info.plist */,
 				04E438B123049A8A0056E4C5 /* ViperMoviesssDB.xcdatamodeld */,
-				04E438EA23049E160056E4C5 /* MovieHomeScreen */,
 			);
 			path = ViperMoviesssDB;
 			sourceTree = "<group>";
