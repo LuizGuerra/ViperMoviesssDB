@@ -10,5 +10,4 @@ import UIKit
 
 /// MovieHomeScreen Module Entity
 struct MovieHomeScreenEntity {
-
 }

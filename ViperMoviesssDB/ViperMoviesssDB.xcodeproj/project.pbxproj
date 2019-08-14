@@ -154,15 +154,63 @@
 		04E438EA23049E160056E4C5 /* MovieHomeScreen */ = {
 			isa = PBXGroup;
 			children = (
-				04E438E023049DF80056E4C5 /* MovieHomeScreenInteractor.swift */,
-				04E438E123049DF80056E4C5 /* MovieHomeScreenView.swift */,
-				04E438E223049DF80056E4C5 /* MovieHomeScreenEntity.swift */,
-				04E438DC23049DF80056E4C5 /* MovieHomeScreenViewUI.swift */,
-				04E438DD23049DF80056E4C5 /* MovieHomeScreenPresenter.swift */,
-				04E438DE23049DF80056E4C5 /* MovieHomeScreenRouter.swift */,
-				04E438DF23049DF80056E4C5 /* MovieHomeScreenContracts.swift */,
+				04E438EB2304A0BD0056E4C5 /* protocols */,
+				04E438F02304A0EB0056E4C5 /* entity */,
+				04E438EF2304A0E90056E4C5 /* interactor */,
+				04E438EE2304A0E70056E4C5 /* router */,
+				04E438ED2304A0E20056E4C5 /* presenter */,
+				04E438EC2304A0DB0056E4C5 /* view */,
 			);
 			path = MovieHomeScreen;
+			sourceTree = "<group>";
+		};
+		04E438EB2304A0BD0056E4C5 /* protocols */ = {
+			isa = PBXGroup;
+			children = (
+				04E438DF23049DF80056E4C5 /* MovieHomeScreenContracts.swift */,
+			);
+			path = protocols;
+			sourceTree = "<group>";
+		};
+		04E438EC2304A0DB0056E4C5 /* view */ = {
+			isa = PBXGroup;
+			children = (
+				04E438DC23049DF80056E4C5 /* MovieHomeScreenViewUI.swift */,
+				04E438E123049DF80056E4C5 /* MovieHomeScreenView.swift */,
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		04E438ED2304A0E20056E4C5 /* presenter */ = {
+			isa = PBXGroup;
+			children = (
+				04E438DD23049DF80056E4C5 /* MovieHomeScreenPresenter.swift */,
+			);
+			path = presenter;
+			sourceTree = "<group>";
+		};
+		04E438EE2304A0E70056E4C5 /* router */ = {
+			isa = PBXGroup;
+			children = (
+				04E438DE23049DF80056E4C5 /* MovieHomeScreenRouter.swift */,
+			);
+			path = router;
+			sourceTree = "<group>";
+		};
+		04E438EF2304A0E90056E4C5 /* interactor */ = {
+			isa = PBXGroup;
+			children = (
+				04E438E023049DF80056E4C5 /* MovieHomeScreenInteractor.swift */,
+			);
+			path = interactor;
+			sourceTree = "<group>";
+		};
+		04E438F02304A0EB0056E4C5 /* entity */ = {
+			isa = PBXGroup;
+			children = (
+				04E438E223049DF80056E4C5 /* MovieHomeScreenEntity.swift */,
+			);
+			path = entity;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
