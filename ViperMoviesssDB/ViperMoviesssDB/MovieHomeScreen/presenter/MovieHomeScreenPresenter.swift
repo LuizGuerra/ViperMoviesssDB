@@ -25,15 +25,15 @@ class MovieHomeScreenPresenter {
 // MARK: - extending MovieHomeScreenPresenter to implement it's protocol
 extension MovieHomeScreenPresenter: MovieHomeScreenPresenterProtocol {
     func fetch(objectFor view: MovieHomeScreenViewProtocol) {
-        <#code#>
+        
     }
     
     func interactor(_ interactor: MovieHomeScreenInteractorProtocol, didFetch object: MovieHomeScreenEntity) {
-        <#code#>
+        
     }
     
     func interactor(_ interactor: MovieHomeScreenInteractorProtocol, didFailWith error: Error) {
-        <#code#>
+        
     }
     
     

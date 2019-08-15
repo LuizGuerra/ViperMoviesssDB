@@ -36,7 +36,7 @@ class MovieHomeScreenView: UIViewController {
 // MARK: - extending MovieHomeScreenView to implement it's protocol
 extension MovieHomeScreenView: MovieHomeScreenViewProtocol {
     func set(object: MovieHomeScreenEntity) {
-        <#code#>
+        
     }
     
     
@@ -50,7 +50,7 @@ extension MovieHomeScreenView: MovieHomeScreenViewUIDelegate {
 // MARK: - extending MovieHomeScreenView to implement the custom ui view data source
 extension MovieHomeScreenView: MovieHomeScreenViewUIDataSource {
     func objectFor(ui: MovieHomeScreenViewUI) -> MovieHomeScreenEntity {
-        <#code#>
+         return MovieHomeScreenEntity()
     }
     
     // Pass the pre-defined object to the dataSource.
