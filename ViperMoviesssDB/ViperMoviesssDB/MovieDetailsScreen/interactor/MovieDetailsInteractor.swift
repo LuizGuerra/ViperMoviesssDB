@@ -10,5 +10,9 @@ import UIKit
 
 /// MovieDetails Module Interactor
 class MovieDetailsInteractor: MovieDetailsInteractorProtocol {
+    func fetch(objectFor presenter: MovieDetailsPresenterProtocol) {
+        
+    }
+    
 
 }
