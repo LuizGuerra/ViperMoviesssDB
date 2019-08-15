@@ -29,6 +29,8 @@ class MovieHomeScreenView: UIViewController {
         
         // Informs the Presenter that the View is ready to receive data.
         presenter.fetch(objectFor: self)
+        
+        self.navigationController?.navigationBar.prefersLargeTitles = true
     }
     
 }
