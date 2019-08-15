@@ -16,6 +16,8 @@ class MovieHomeScreenView: UIViewController {
     
     private var object : MovieHomeScreenEntity?
     
+    
+    
     override func loadView() {
         // setting the custom view as the view controller's view
         ui.delegate = self
@@ -31,6 +33,16 @@ class MovieHomeScreenView: UIViewController {
         presenter.fetch(objectFor: self)
         
         self.navigationController?.navigationBar.prefersLargeTitles = true
+        
+        
+        let search = UISearchController(searchResultsController: nil)
+        search.searchBar.placeholder = "Search"
+        
+        //search.searchBar.barTintColor = UIColor(displayP3Red: 142.0/255, green: 142.0/255, blue: 147.0/255, alpha: 1.0)
+       
+        //search.searchBar.backgroundColor = UIColor(displayP3Red: 142.0/255, green: 142.0/255, blue: 147.0/255, alpha: 0.12)
+        self.navigationItem.searchController = search
+    
     }
     
 }
