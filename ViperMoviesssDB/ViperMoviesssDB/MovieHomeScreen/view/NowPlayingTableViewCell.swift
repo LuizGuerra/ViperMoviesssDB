@@ -29,8 +29,8 @@ class NowPlayingTableViewCell: UITableViewCell, UICollectionViewDelegateFlowLayo
         let flowLayout = UICollectionViewFlowLayout()
         flowLayout.scrollDirection = .horizontal
         flowLayout.itemSize = CGSize(width: 152, height: 308)
-        flowLayout.minimumLineSpacing = 2.0
-        flowLayout.minimumInteritemSpacing = 10.0
+        flowLayout.minimumLineSpacing = 10.0
+        flowLayout.minimumInteritemSpacing = 20.0
         self.mCollectionView.collectionViewLayout = flowLayout
         
         self.mCollectionView.delegate = self
@@ -70,5 +70,8 @@ extension NowPlayingTableViewCell: UICollectionViewDataSource,
         return cell!
         
     }
+    
+    
+    
     
 }

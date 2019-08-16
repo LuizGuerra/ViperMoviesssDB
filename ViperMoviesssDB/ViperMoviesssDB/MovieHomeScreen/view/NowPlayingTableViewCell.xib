@@ -20,7 +20,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="2Fw-1K-EQE">
-                        <rect key="frame" x="0.0" y="0.0" width="308" height="151.5"/>
+                        <rect key="frame" x="16" y="0.0" width="292" height="152"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="qHV-bO-sOP">
                             <size key="itemSize" width="152" height="308"/>
@@ -31,11 +31,10 @@
                     </collectionView>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="2Fw-1K-EQE" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="Mkm-SF-ETL"/>
                     <constraint firstItem="2Fw-1K-EQE" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="SIg-hC-mdm"/>
                     <constraint firstAttribute="trailing" secondItem="2Fw-1K-EQE" secondAttribute="trailing" id="V6p-PX-rZH"/>
                     <constraint firstAttribute="bottom" secondItem="2Fw-1K-EQE" secondAttribute="bottom" id="Wzb-b4-UqE"/>
-                    <constraint firstItem="2Fw-1K-EQE" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="Y82-Rq-6KU"/>
+                    <constraint firstItem="2Fw-1K-EQE" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="Y82-Rq-6KU"/>
                     <constraint firstItem="2Fw-1K-EQE" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="a2n-tY-Qn5"/>
                     <constraint firstAttribute="trailing" secondItem="2Fw-1K-EQE" secondAttribute="trailing" id="jk2-of-zgM"/>
                 </constraints>
@@ -44,7 +43,7 @@
             <connections>
                 <outlet property="mCollectionView" destination="2Fw-1K-EQE" id="tPS-KD-tGw"/>
             </connections>
-            <point key="canvasLocation" x="218.11594202898553" y="-2.34375"/>
+            <point key="canvasLocation" x="217.39130434782609" y="-2.6785714285714284"/>
         </tableViewCell>
     </objects>
 </document>

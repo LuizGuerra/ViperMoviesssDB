@@ -51,6 +51,10 @@ class MovieHomeScreenView: UIViewController {
         self.tableView.delegate = self
         self.tableView.dataSource = self
         
+        self.tableView.estimatedRowHeight = 308
+        self.tableView.rowHeight = UITableView.automaticDimension
+        
+        
     }
     
     
@@ -101,6 +105,14 @@ extension MovieHomeScreenView : UITableViewDelegate,
             return "Now Playing"
         }else{
             return "Popular Movies"
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if indexPath.section == 0{
+            return 308
+        }else{
+            return 137.5
         }
     }
 
