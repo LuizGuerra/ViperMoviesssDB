@@ -16,14 +16,11 @@ class MovieHomeScreenView: UIViewController {
     
     private var object : MovieHomeScreenEntity?
     
+
+    @IBOutlet weak var tableView: UITableView!
     
     
-    override func loadView() {
-        // setting the custom view as the view controller's view
-        ui.delegate = self
-        ui.dataSource = self
-        view = ui
-    }
+   
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,8 +39,25 @@ class MovieHomeScreenView: UIViewController {
        
         //search.searchBar.backgroundColor = UIColor(displayP3Red: 142.0/255, green: 142.0/255, blue: 147.0/255, alpha: 0.12)
         self.navigationItem.searchController = search
-    
+        
+        
+        // Do any additional setup after loading the view, typically from a nib.
+        let nowPlayingNib = UINib(nibName: "NowPlayingTableViewCell", bundle: nil)
+        self.tableView.register(nowPlayingNib, forCellReuseIdentifier: "NowPlayingTableViewCell")
+        
+        let popularMoviesNib = UINib(nibName: "PopularMoviesTableViewCell", bundle: nil)
+        self.tableView.register(popularMoviesNib, forCellReuseIdentifier: "PopularMoviesTableViewCell")
+        
+        self.tableView.delegate = self
+        self.tableView.dataSource = self
+        
+        self.tableView.estimatedRowHeight = 308
+        self.tableView.rowHeight = UITableView.automaticDimension
+        
+        
     }
+    
+    
     
 }
 
@@ -68,4 +82,53 @@ extension MovieHomeScreenView: MovieHomeScreenViewUIDataSource {
     }
     
     // Pass the pre-defined object to the dataSource.
+}
+
+
+extension MovieHomeScreenView : UITableViewDelegate,
+    UITableViewDataSource{
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if section == 0{
+            return 1
+        } else{
+            return 10
+        }
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 2
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        if section == 0{
+            return "Now Playing"
+        }else{
+            return "Popular Movies"
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if indexPath.section == 0{
+            return 308
+        }else{
+            return 137.5
+        }
+    }
+
+    
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        if indexPath.section == 0{
+            let cell = tableView.dequeueReusableCell(withIdentifier: "NowPlayingTableViewCell") as! NowPlayingTableViewCell
+            cell.movies = nil
+            return cell
+        }else{
+            let cell = tableView.dequeueReusableCell(withIdentifier: "PopularMoviesTableViewCell") as! PopularMoviesTableViewCell
+            return cell
+        }
+    }
+    
+    
 }
