@@ -39,6 +39,8 @@
 		F10488E923063B3900EE61F8 /* NowPlayingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F10488E723063B3900EE61F8 /* NowPlayingTableViewCell.xib */; };
 		F10488EC2306455C00EE61F8 /* PopularMoviesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10488EA2306455C00EE61F8 /* PopularMoviesTableViewCell.swift */; };
 		F10488ED2306455C00EE61F8 /* PopularMoviesTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F10488EB2306455C00EE61F8 /* PopularMoviesTableViewCell.xib */; };
+		F1797DC72307270A007C3FCF /* NowPlayingHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = F1797DC62307270A007C3FCF /* NowPlayingHeader.xib */; };
+		F1797DC923072786007C3FCF /* NowPlayingViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1797DC823072786007C3FCF /* NowPlayingViewHeader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -97,6 +99,8 @@
 		F10488E723063B3900EE61F8 /* NowPlayingTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NowPlayingTableViewCell.xib; sourceTree = "<group>"; };
 		F10488EA2306455C00EE61F8 /* PopularMoviesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopularMoviesTableViewCell.swift; sourceTree = "<group>"; };
 		F10488EB2306455C00EE61F8 /* PopularMoviesTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PopularMoviesTableViewCell.xib; sourceTree = "<group>"; };
+		F1797DC62307270A007C3FCF /* NowPlayingHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NowPlayingHeader.xib; sourceTree = "<group>"; };
+		F1797DC823072786007C3FCF /* NowPlayingViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NowPlayingViewHeader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -217,6 +221,7 @@
 				F10488E02306279600EE61F8 /* NowPlayingCollectionViewCell.swift */,
 				F10488E623063B3900EE61F8 /* NowPlayingTableViewCell.swift */,
 				F10488EA2306455C00EE61F8 /* PopularMoviesTableViewCell.swift */,
+				F1797DC823072786007C3FCF /* NowPlayingViewHeader.swift */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -356,6 +361,7 @@
 				F10488E12306279600EE61F8 /* NowPlayingCollectionViewCell.xib */,
 				F10488E723063B3900EE61F8 /* NowPlayingTableViewCell.xib */,
 				F10488EB2306455C00EE61F8 /* PopularMoviesTableViewCell.xib */,
+				F1797DC62307270A007C3FCF /* NowPlayingHeader.xib */,
 			);
 			path = xibs;
 			sourceTree = "<group>";
@@ -469,6 +475,7 @@
 				04E438B823049A8B0056E4C5 /* LaunchScreen.storyboard in Resources */,
 				04E438B523049A8B0056E4C5 /* Assets.xcassets in Resources */,
 				04E438B023049A8A0056E4C5 /* Main.storyboard in Resources */,
+				F1797DC72307270A007C3FCF /* NowPlayingHeader.xib in Resources */,
 				F10488E923063B3900EE61F8 /* NowPlayingTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -504,6 +511,7 @@
 				F10488D52305D1EC00EE61F8 /* Album.swift in Sources */,
 				F10488BE2305C31E00EE61F8 /* MovieDetailsRouter.swift in Sources */,
 				04E438E823049DF80056E4C5 /* MovieHomeScreenView.swift in Sources */,
+				F1797DC923072786007C3FCF /* NowPlayingViewHeader.swift in Sources */,
 				04E438E523049DF80056E4C5 /* MovieHomeScreenRouter.swift in Sources */,
 				04E438B323049A8A0056E4C5 /* ViperMoviesssDB.xcdatamodeld in Sources */,
 				F10488C22305C31E00EE61F8 /* MovieDetailsEntity.swift in Sources */,

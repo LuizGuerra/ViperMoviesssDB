@@ -48,6 +48,10 @@ class MovieHomeScreenView: UIViewController {
         let popularMoviesNib = UINib(nibName: "PopularMoviesTableViewCell", bundle: nil)
         self.tableView.register(popularMoviesNib, forCellReuseIdentifier: "PopularMoviesTableViewCell")
         
+        
+        let nowPlayingHeaderNib = UINib.init(nibName: "NowPlayingHeader", bundle: Bundle.main)
+        self.tableView.register(nowPlayingHeaderNib, forHeaderFooterViewReuseIdentifier: "nowPlayingHeaderID")
+        
         self.tableView.delegate = self
         self.tableView.dataSource = self
         
@@ -128,6 +132,21 @@ extension MovieHomeScreenView : UITableViewDelegate,
             let cell = tableView.dequeueReusableCell(withIdentifier: "PopularMoviesTableViewCell") as! PopularMoviesTableViewCell
             return cell
         }
+    }
+    
+    // Make the background color show through
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        
+        if section == 0{
+            let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: "nowPlayingHeaderID") as! NowPlayingViewHeader
+            return headerView
+        }else {
+            return nil
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 64
     }
     
     
