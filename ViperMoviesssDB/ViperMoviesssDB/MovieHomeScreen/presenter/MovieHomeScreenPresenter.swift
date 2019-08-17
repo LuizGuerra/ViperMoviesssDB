@@ -9,31 +9,31 @@
 import UIKit
 
 /// MovieHomeScreen Module Presenter
-class MovieHomeScreenPresenter {
+class MovieHomeScreenPresenter: MovieHomeScreenPresenterProtocol{
+   
+    var view: MovieHomeScreenViewProtocol?
+    var interactor: MovieHomeScreenInputInteractorProtocol?
+    var wireframe: MovieHomeScreenRouterProtocol?
     
-    weak private var _view: MovieHomeScreenViewProtocol?
-    private var interactor: MovieHomeScreenInteractorProtocol
-    private var wireframe: MovieHomeScreenRouterProtocol
     
-    init(view: MovieHomeScreenViewProtocol) {
-        self._view = view
-        self.interactor = MovieHomeScreenInteractor()
-        self.wireframe = MovieHomeScreenRouter()
+    
+    func viewDidLoad() {
+        print("viewDidLoad()")
+        interactor?.getNowPlayingMovies()
+        interactor?.getPlayingNowMovies()
     }
+    
+    
 }
 
-// MARK: - extending MovieHomeScreenPresenter to implement it's protocol
-extension MovieHomeScreenPresenter: MovieHomeScreenPresenterProtocol {
-    func fetch(objectFor view: MovieHomeScreenViewProtocol) {
-        
+// Communication from interactor
+extension MovieHomeScreenPresenter: MovieHomeScreenOutputInteractorProtocol {
+    func popularMoviesDidFetch(movies: [Movie]) {
+        view?.showPopularMovies(with: movies)
     }
     
-    func interactor(_ interactor: MovieHomeScreenInteractorProtocol, didFetch object: MovieHomeScreenEntity) {
-        
-    }
-    
-    func interactor(_ interactor: MovieHomeScreenInteractorProtocol, didFailWith error: Error) {
-        
+    func nowPlayingMoviesDidFetch(movies: [Movie]) {
+        view?.showNowPlayingMovies(with: movies)
     }
     
     
