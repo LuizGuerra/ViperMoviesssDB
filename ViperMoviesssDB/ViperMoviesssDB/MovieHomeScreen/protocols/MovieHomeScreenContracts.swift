@@ -8,40 +8,51 @@
 
 import UIKit
 
-//MARK: View -
-/*
- Should replace "class" with "BaseViewProtocol" if available;
- & that will allow the View to act as a UIViewController;
- & Implement common view functions.
- */
-/// MovieHomeScreen Module View Protocol
+//MARK: - View
+
 protocol MovieHomeScreenViewProtocol: class {
-    // Update UI with value returned.
-    /// Set the view Object of Type MovieHomeScreenEntity
-    func set(object: MovieHomeScreenEntity)
+    // PRESENTER -> VIEW
+    func showNowPlayingMovies(with movies: [Movie]?)
+    func showPopularMovies(with movies: [Movie]?)
 }
 
-//MARK: Interactor -
-/// MovieHomeScreen Module Interactor Protocol
-protocol MovieHomeScreenInteractorProtocol {
-    // Fetch Object from Data Layer
-    func fetch(objectFor presenter: MovieHomeScreenPresenterProtocol)
+//MARK: - Interactor
+
+protocol MovieHomeScreenInputInteractorProtocol: class {
+    var presenter: MovieHomeScreenOutputInteractorProtocol? {get set}
+    
+    //Presenter -> Interactor
+    func getNowPlayingMovies()
+    func getPlayingNowMovies()
 }
 
-//MARK: Presenter -
-/// MovieHomeScreen Module Presenter Protocol
+protocol MovieHomeScreenOutputInteractorProtocol: class {
+    //Interactor -> Presenter
+    func popularMoviesDidFetch(movies:[Movie])
+    func nowPlayingMoviesDidFetch(movies:[Movie])
+}
+
+
+//MARK: - Presenter
+
 protocol MovieHomeScreenPresenterProtocol {
-    /// The presenter will fetch data from the Interactor thru implementing the Interactor fetch function.
-    func fetch(objectFor view: MovieHomeScreenViewProtocol)
-    /// The Interactor will inform the Presenter a successful fetch.
-    func interactor(_ interactor: MovieHomeScreenInteractorProtocol, didFetch object: MovieHomeScreenEntity)
-    /// The Interactor will inform the Presenter a failed fetch.
-    func interactor(_ interactor: MovieHomeScreenInteractorProtocol, didFailWith error: Error)
+    // View -> Presenter
+    
+    var interactor: MovieHomeScreenInputInteractorProtocol? {get set}
+    var view: MovieHomeScreenViewProtocol? {get set}
+    var wireframe: MovieHomeScreenRouterProtocol? {get set}
+    
+    func viewDidLoad()
+    
+    
+    
 }
 
-//MARK: Router (aka: Wireframe) -
-/// MovieHomeScreen Module Router Protocol
+//MARK: - Router (aka: Wireframe)
+
 protocol MovieHomeScreenRouterProtocol {
-    // Show Details of Entity Object coming from ParentView Controller.
-    // func showDetailsFor(object: MovieHomeScreenEntity, parentViewController viewController: UIViewController)
+    
+    //Presenter -> Wireframe
+    func showMovieDetails(with movie:Movie,from view:UIViewController)
+    func showNowPlayingSeeAllMovies(from view:UIViewController)
 }
