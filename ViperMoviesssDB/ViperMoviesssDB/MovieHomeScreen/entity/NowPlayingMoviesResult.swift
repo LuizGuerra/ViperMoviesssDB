@@ -62,10 +62,3 @@ struct Movie: Codable {
         case releaseDate = "release_date"
     }
 }
-
-enum OriginalLanguage: String, Codable {
-    case de = "de"
-    case en = "en"
-    case ja = "ja"
-    case ko = "ko"
-}

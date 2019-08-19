@@ -126,7 +126,7 @@ extension MovieHomeScreenView : UITableViewDelegate,
         if section == 0{
             let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: "nowPlayingHeaderID") as! NowPlayingViewHeader
             return headerView
-        }else {
+        } else {
             return nil
         }
     }
