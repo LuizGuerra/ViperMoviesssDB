@@ -30,3 +30,22 @@ class FetchPopularMovieData: FetchPopularMooviesProtocol {
     }
     
 }
+
+extension FetchPopularMovieData: FetchImageDataProtocol {
+    
+    
+//  Can return empty data, if returns empty data, set "could not load image"
+    func fetchImage(posterPath: String) -> Data {
+        
+        guard let url = URL(string: "https://image.tmdb.org/t/p/w500\(posterPath)") else { return Data() }
+        
+        URLSession.shared.dataTask(with: url) { data, reponse, error in
+            guard let imageData = data else { return }
+            DispatchQueue.main.async {
+                return imageData
+            }
+            }.resume()
+        
+    }
+    
+}

@@ -26,6 +26,7 @@
 		0408CB6A230B34DF00FB5B3B /* FetchMovieData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0408CB69230B34DF00FB5B3B /* FetchMovieData.swift */; };
 		0408CB70230B40C600FB5B3B /* InternetConectionProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0408CB6F230B40C600FB5B3B /* InternetConectionProtocol.swift */; };
 		0408CB72230B40DC00FB5B3B /* InternetHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0408CB71230B40DC00FB5B3B /* InternetHandler.swift */; };
+		042679A0230B65E700FBC026 /* FetchImageDataProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0426799F230B65E700FBC026 /* FetchImageDataProtocol.swift */; };
 		04E438AB23049A8A0056E4C5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E438AA23049A8A0056E4C5 /* AppDelegate.swift */; };
 		04E438AD23049A8A0056E4C5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E438AC23049A8A0056E4C5 /* ViewController.swift */; };
 		04E438B023049A8A0056E4C5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04E438AE23049A8A0056E4C5 /* Main.storyboard */; };
@@ -101,6 +102,7 @@
 		0408CB69230B34DF00FB5B3B /* FetchMovieData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchMovieData.swift; sourceTree = "<group>"; };
 		0408CB6F230B40C600FB5B3B /* InternetConectionProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InternetConectionProtocol.swift; sourceTree = "<group>"; };
 		0408CB71230B40DC00FB5B3B /* InternetHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InternetHandler.swift; sourceTree = "<group>"; };
+		0426799F230B65E700FBC026 /* FetchImageDataProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchImageDataProtocol.swift; sourceTree = "<group>"; };
 		04E438A723049A8A0056E4C5 /* ViperMoviesssDB.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ViperMoviesssDB.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04E438AA23049A8A0056E4C5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		04E438AC23049A8A0056E4C5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -458,6 +460,7 @@
 			isa = PBXGroup;
 			children = (
 				F10488D02305D03600EE61F8 /* MovieProtocolAPI.swift */,
+				0426799F230B65E700FBC026 /* FetchImageDataProtocol.swift */,
 			);
 			path = protocols;
 			sourceTree = "<group>";
@@ -666,6 +669,7 @@
 				04E438B323049A8A0056E4C5 /* ViperMoviesssDB.xcdatamodeld in Sources */,
 				0408CB4B230B309C00FB5B3B /* Movie.swift in Sources */,
 				0408CB45230B2DAB00FB5B3B /* Result.swift in Sources */,
+				042679A0230B65E700FBC026 /* FetchImageDataProtocol.swift in Sources */,
 				04E438AB23049A8A0056E4C5 /* AppDelegate.swift in Sources */,
 				0408CB51230B311A00FB5B3B /* PopularMoviesResult.swift in Sources */,
 				F10488C02305C31E00EE61F8 /* MovieDetailsInteractor.swift in Sources */,
