@@ -14,4 +14,5 @@ struct SpokenLanguage: Codable {
     enum CodingKeys: String, CodingKey {
         case iso639_1 = "iso_639_1"
         case name
+    }
 }

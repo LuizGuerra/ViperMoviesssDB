@@ -14,7 +14,6 @@ class MovieDetailsView: UIViewController {
 
     private var presenter: MovieDetailsPresenterProtocol!
     
-    private var object : MovieDetailsEntity?
     
   
     @IBOutlet weak var mTableView: UITableView!
@@ -58,10 +57,7 @@ class MovieDetailsView: UIViewController {
 
 // MARK: - extending MovieDetailsView to implement it's protocol
 extension MovieDetailsView: MovieDetailsViewProtocol {
-    func set(object: MovieDetailsEntity) {
-        
-    }
-    
+  
     
 }
 

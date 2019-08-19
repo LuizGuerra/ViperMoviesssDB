@@ -28,9 +28,7 @@ extension MovieDetailsPresenter: MovieDetailsPresenterProtocol {
         
     }
     
-    func interactor(_ interactor: MovieDetailsInteractorProtocol, didFetch object: MovieDetailsEntity) {
-        
-    }
+   
     
     func interactor(_ interactor: MovieDetailsInteractorProtocol, didFailWith error: Error) {
         

@@ -18,7 +18,7 @@ import UIKit
 protocol MovieDetailsViewProtocol: class {
     // Update UI with value returned.
     /// Set the view Object of Type MovieDetailsEntity
-    func set(object: MovieDetailsEntity)
+    
 }
 
 //MARK: Interactor -
@@ -33,8 +33,7 @@ protocol MovieDetailsInteractorProtocol {
 protocol MovieDetailsPresenterProtocol {
     /// The presenter will fetch data from the Interactor thru implementing the Interactor fetch function.
     func fetch(objectFor view: MovieDetailsViewProtocol)
-    /// The Interactor will inform the Presenter a successful fetch.
-    func interactor(_ interactor: MovieDetailsInteractorProtocol, didFetch object: MovieDetailsEntity)
+
     /// The Interactor will inform the Presenter a failed fetch.
     func interactor(_ interactor: MovieDetailsInteractorProtocol, didFailWith error: Error)
 }

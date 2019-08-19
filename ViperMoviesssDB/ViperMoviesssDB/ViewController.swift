@@ -14,14 +14,6 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
-        let movieAPI = MovieDbAPI()
-        
-        print("ViewDidLoad")
-        
-        movieAPI.fetchNowPlayingMovies { (movies) in
-            print("Has movies")
-            print(movies)
-        }
     }
 
 
