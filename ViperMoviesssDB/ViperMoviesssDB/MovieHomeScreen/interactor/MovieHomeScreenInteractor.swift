@@ -15,18 +15,14 @@ class MovieHomeScreenInteractor:  MovieHomeScreenInputInteractorProtocol{
     
     func getPlayingNowMovies() {
         FetchFirstPageMovieData.shared.fetchData(completion: { results in
-            print("Received results = \(results)")
             self.presenter?.nowPlayingMoviesDidFetch(movies: results)
         })
     }
     
-    func getNowPlayingMovies() {
-        // Fetch now playing from server
-        
-        //Then retriece data using delegate pattern:
-        //presenter?.nowPlayingMoviesDidFetch(movies: [Movie])
+    func getPopularMovies() {
+        FetchPopularMovieData.shared.fetchData { (result) in
+            self.presenter?.popularMoviesDidFetch(movies: result)
+        }
     }
-    
-    
-   
+
 }

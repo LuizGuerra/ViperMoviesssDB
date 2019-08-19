@@ -16,7 +16,7 @@ class MovieHomeScreenView: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     var nowPlayingMovies: [Result]?
-    var popularMovies: [Movie]?
+    var popularMovies: [Result]?
     
     var isSearchingMovie = false
     
@@ -76,7 +76,7 @@ extension MovieHomeScreenView: MovieHomeScreenViewProtocol {
         
     }
     
-    func showPopularMovies(with movies: [Movie]?){
+    func showPopularMovies(with movies: [Result]?){
         popularMovies = movies
         DispatchQueue.main.sync {
             tableView.reloadData()

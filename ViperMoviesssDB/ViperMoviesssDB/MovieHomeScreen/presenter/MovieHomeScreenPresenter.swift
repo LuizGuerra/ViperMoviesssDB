@@ -23,6 +23,7 @@ class MovieHomeScreenPresenter: MovieHomeScreenPresenterProtocol{
         print("viewDidLoad()")
         
         interactor?.getPlayingNowMovies()
+        interactor?.getPopularMovies()
     }
     
     func showMovieDetails(with movie: Movie, from view: UIViewController) {
@@ -36,7 +37,7 @@ class MovieHomeScreenPresenter: MovieHomeScreenPresenterProtocol{
 extension MovieHomeScreenPresenter: MovieHomeScreenOutputInteractorProtocol {
     
     
-    func popularMoviesDidFetch(movies: [Movie]) {
+    func popularMoviesDidFetch(movies: [Result]?) {
         view?.showPopularMovies(with: movies)
     }
     

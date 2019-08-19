@@ -10,6 +10,6 @@ import Foundation
 
 protocol FetchPopularMooviesProtocol {
     
-    func fetchData ()
+    func fetchData (completion: @escaping ([Result]?)->Void)
     
 }

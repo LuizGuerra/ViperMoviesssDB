@@ -13,7 +13,7 @@ import UIKit
 protocol MovieHomeScreenViewProtocol: class {
     // PRESENTER -> VIEW
     func showNowPlayingMovies(with movies: [Result]?)
-    func showPopularMovies(with movies: [Movie]?)
+    func showPopularMovies(with movies: [Result]?)
 }
 
 //MARK: - Interactor
@@ -23,11 +23,12 @@ protocol MovieHomeScreenInputInteractorProtocol: class {
     
     //Presenter -> Interactor
     func getPlayingNowMovies()
+    func getPopularMovies()
 }
 
 protocol MovieHomeScreenOutputInteractorProtocol: class {
     //Interactor -> Presenter
-    func popularMoviesDidFetch(movies:[Movie])
+    func popularMoviesDidFetch(movies:[Result]?)
     func nowPlayingMoviesDidFetch(movies:[Result]?)
 }
 
