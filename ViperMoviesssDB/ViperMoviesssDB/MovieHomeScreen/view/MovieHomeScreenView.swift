@@ -18,6 +18,8 @@ class MovieHomeScreenView: UIViewController {
     var nowPlayingMovies: [Movie]?
     var popularMovies: [Movie]?
     
+    var isSearchingMovie = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -79,23 +81,45 @@ extension MovieHomeScreenView : UITableViewDelegate,
     UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if section == 0{
+        
+        if !isSearchingMovie{
             return 1
-        } else{
-            return 10
+        }else{
+            if section == 0{
+                return 1
+            } else{
+                return 10
+            }
         }
+        
+
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
+        
+        
+        if !isSearchingMovie{
+            return 2
+        }else{
+            return 1
+        }
+        
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        if section == 0{
-            return "Now Playing"
+        
+        if !isSearchingMovie{
+            if section == 0{
+                return "Now Playing"
+            }else{
+                return "Popular Movies"
+            }
+            
         }else{
-            return "Popular Movies"
+            return "Showing 20 results"
         }
+        
+        
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -110,26 +134,41 @@ extension MovieHomeScreenView : UITableViewDelegate,
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        if indexPath.section == 0{
+        if isSearchingMovie{
             let cell = tableView.dequeueReusableCell(withIdentifier: "NowPlayingTableViewCell") as! NowPlayingTableViewCell
+            
             cell.cellDelegate = self
             cell.movies = nil
             return cell
         }else{
-            let cell = tableView.dequeueReusableCell(withIdentifier: "PopularMoviesTableViewCell") as! PopularMoviesTableViewCell
-            return cell
+        
+            if indexPath.section == 0{
+                let cell = tableView.dequeueReusableCell(withIdentifier: "NowPlayingTableViewCell") as! NowPlayingTableViewCell
+                cell.cellDelegate = self
+                cell.movies = nil
+                return cell
+            }else{
+                let cell = tableView.dequeueReusableCell(withIdentifier: "PopularMoviesTableViewCell") as! PopularMoviesTableViewCell
+                return cell
+            }
+            
         }
     }
     
     // Make the background color show through
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        
-        if section == 0{
-            let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: "nowPlayingHeaderID") as! NowPlayingViewHeader
-            return headerView
-        }else {
+        if isSearchingMovie{
             return nil
         }
+        else{
+            if section == 0{
+                let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: "nowPlayingHeaderID") as! NowPlayingViewHeader
+                return headerView
+            }else {
+                return nil
+            }
+        }
+        
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -156,9 +195,29 @@ extension MovieHomeScreenView: NowPlayingCollectionViewCellDelegate{
 
 extension MovieHomeScreenView : UISearchBarDelegate{
     func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        isSearchingMovie = true
         print(searchBar.text)
+        DispatchQueue.main.async {
+            self.tableView.reloadInputViews()
+            self.tableView.reloadData()
+        }
+        
     }
     
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        isSearchingMovie = true
+        DispatchQueue.main.async {
+            self.tableView.reloadInputViews()
+            self.tableView.reloadData()
+        }
+    }
     
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        isSearchingMovie = false
+        DispatchQueue.main.async {
+            self.tableView.reloadInputViews()
+            self.tableView.reloadData()
+        }
+    }
 }
 
