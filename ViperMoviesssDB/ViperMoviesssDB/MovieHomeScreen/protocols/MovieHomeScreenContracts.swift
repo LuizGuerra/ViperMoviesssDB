@@ -44,6 +44,7 @@ protocol MovieHomeScreenPresenterProtocol {
     
     func viewDidLoad()
     
+    func showMovieDetails(with movie: Movie, from view: UIViewController)
     
     
 }

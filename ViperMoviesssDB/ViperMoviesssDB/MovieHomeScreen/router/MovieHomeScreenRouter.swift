@@ -11,7 +11,12 @@ import UIKit
 /// MovieHomeScreen Module Router (aka: Wireframe)
 class MovieHomeScreenRouter: MovieHomeScreenRouterProtocol {
     func showMovieDetails(with movie: Movie, from view: UIViewController) {
+        let movieDetailsStoryboard = UIStoryboard(name: "MovieDetails", bundle: nil)
         
+        let movieDetailsVC = movieDetailsStoryboard.instantiateViewController(withIdentifier: "movieDetailsController") as! MovieDetailsView
+        
+        
+        view.navigationController?.pushViewController(movieDetailsVC, animated: false)
         
     }
     
