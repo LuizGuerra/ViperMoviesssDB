@@ -23,7 +23,7 @@
                             <rect key="frame" x="0.0" y="0.0" width="113" height="194"/>
                         </imageView>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="DML-sB-1RJ">
-                            <rect key="frame" x="123" y="110.5" width="188" height="70.5"/>
+                            <rect key="frame" x="123" y="96.5" width="188" height="70.5"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fast &amp; Furious" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cek-Ep-6va">
                                     <rect key="frame" x="0.0" y="0.0" width="188" height="24"/>
@@ -80,7 +80,7 @@
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstAttribute="bottom" secondItem="0c8-pM-JGu" secondAttribute="bottom" id="2Xr-AT-EjA"/>
-                        <constraint firstAttribute="bottom" secondItem="DML-sB-1RJ" secondAttribute="bottom" constant="13" id="9my-LL-uaF"/>
+                        <constraint firstAttribute="bottom" secondItem="DML-sB-1RJ" secondAttribute="bottom" constant="27" id="9my-LL-uaF"/>
                         <constraint firstAttribute="trailing" secondItem="DML-sB-1RJ" secondAttribute="trailing" id="Elr-vR-a24"/>
                         <constraint firstItem="0c8-pM-JGu" firstAttribute="leading" secondItem="qL5-8F-yZ0" secondAttribute="leading" id="VmX-lE-P9U"/>
                         <constraint firstAttribute="trailing" secondItem="0c8-pM-JGu" secondAttribute="trailing" constant="198" id="aDx-Oe-qkO"/>
