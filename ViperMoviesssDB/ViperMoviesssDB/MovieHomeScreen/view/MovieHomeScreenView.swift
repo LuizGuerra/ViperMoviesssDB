@@ -37,6 +37,7 @@ class MovieHomeScreenView: UIViewController {
         let search = UISearchController(searchResultsController: nil)
         search.searchBar.placeholder = "Search"
         self.navigationItem.searchController = search
+        self.navigationItem.searchController?.searchBar.delegate = self
         
         //Now playing movies Xib Cell
         let nowPlayingNib = UINib(nibName: "NowPlayingTableViewCell", bundle: nil)
@@ -150,6 +151,12 @@ extension MovieHomeScreenView: NowPlayingCollectionViewCellDelegate{
         print("didTappedInTableView cell")
         
         presenter?.showMovieDetails(with: movie, from: self)
+    }
+}
+
+extension MovieHomeScreenView : UISearchBarDelegate{
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        print(searchBar.text)
     }
     
     
