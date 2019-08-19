@@ -16,17 +16,29 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="64"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Overview" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tRZ-vr-Xl6">
-                    <rect key="frame" x="20" y="23.5" width="60.5" height="17"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <nil key="textColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="huT-VJ-DR3">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="64"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Overview" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tRZ-vr-Xl6">
+                            <rect key="frame" x="16" y="23.5" width="60.5" height="17"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="tRZ-vr-Xl6" firstAttribute="leading" secondItem="huT-VJ-DR3" secondAttribute="leadingMargin" constant="8" id="Ft2-MD-gsh"/>
+                        <constraint firstItem="tRZ-vr-Xl6" firstAttribute="centerY" secondItem="huT-VJ-DR3" secondAttribute="centerY" id="gAP-s3-i4i"/>
+                    </constraints>
+                </view>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstItem="tRZ-vr-Xl6" firstAttribute="leading" secondItem="wmY-c5-p9P" secondAttribute="leadingMargin" id="3iA-gT-m75"/>
-                <constraint firstItem="tRZ-vr-Xl6" firstAttribute="centerY" secondItem="wmY-c5-p9P" secondAttribute="centerY" id="YRQ-53-fo9"/>
+                <constraint firstItem="huT-VJ-DR3" firstAttribute="leading" secondItem="vgr-i9-uQo" secondAttribute="leading" id="3pE-bQ-7WP"/>
+                <constraint firstAttribute="bottom" secondItem="huT-VJ-DR3" secondAttribute="bottom" id="9gT-ud-hQB"/>
+                <constraint firstItem="vgr-i9-uQo" firstAttribute="trailing" secondItem="huT-VJ-DR3" secondAttribute="trailing" id="JwX-6F-XEg"/>
+                <constraint firstItem="huT-VJ-DR3" firstAttribute="top" secondItem="wmY-c5-p9P" secondAttribute="top" id="mdH-4U-2uL"/>
             </constraints>
             <nil key="simulatedTopBarMetrics"/>
             <nil key="simulatedBottomBarMetrics"/>
