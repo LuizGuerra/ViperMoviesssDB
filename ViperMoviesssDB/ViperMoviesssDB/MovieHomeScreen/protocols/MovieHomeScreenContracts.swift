@@ -22,7 +22,6 @@ protocol MovieHomeScreenInputInteractorProtocol: class {
     var presenter: MovieHomeScreenOutputInteractorProtocol? {get set}
     
     //Presenter -> Interactor
-    func getNowPlayingMovies()
     func getPlayingNowMovies()
 }
 

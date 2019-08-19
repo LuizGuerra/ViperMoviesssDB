@@ -8,11 +8,13 @@
 
 import Foundation
 
-class FetchFirstPageMovieData: FetchAllMoviesDataProcol {
+final class FetchFirstPageMovieData: FetchAllMoviesDataProcol {
+    
+    static let shared:FetchFirstPageMovieData = FetchFirstPageMovieData()
     
     var allResults: AllResults?
     
-    func fetchData() {
+    func fetchData(completion: @escaping (AllResults?)->Void) {
         
         guard let url = URL(string: "https://api.themoviedb.org/3/movie/now_playing?api_key=e7874dc70ec5827126c27e68c1c85962&language=en-US&page=1") else { return }
         
@@ -23,7 +25,9 @@ class FetchFirstPageMovieData: FetchAllMoviesDataProcol {
                 do {
                     let pr = try JSONDecoder().decode(AllResults.self, from: jsonAsString)
                     print(pr)
+                    completion(pr)
                 } catch {
+                    completion(nil)
                     print("error")
                 }
             }

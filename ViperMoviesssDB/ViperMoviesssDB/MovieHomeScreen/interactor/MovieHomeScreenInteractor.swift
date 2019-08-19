@@ -10,11 +10,14 @@ import UIKit
 
 /// MovieHomeScreen Module Interactor
 class MovieHomeScreenInteractor:  MovieHomeScreenInputInteractorProtocol{
-    func getPlayingNowMovies() {
-        
-    }
     
     var presenter: MovieHomeScreenOutputInteractorProtocol?
+    
+    func getPlayingNowMovies() {
+        FetchFirstPageMovieData.shared.fetchData(completion: { results in
+            print("Received results = \(results)")
+        })
+    }
     
     func getNowPlayingMovies() {
         // Fetch now playing from server

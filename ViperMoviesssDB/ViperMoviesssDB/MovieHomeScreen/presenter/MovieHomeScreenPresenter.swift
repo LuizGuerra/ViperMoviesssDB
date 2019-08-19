@@ -21,7 +21,7 @@ class MovieHomeScreenPresenter: MovieHomeScreenPresenterProtocol{
     
     func viewDidLoad() {
         print("viewDidLoad()")
-        interactor?.getNowPlayingMovies()
+        
         interactor?.getPlayingNowMovies()
     }
     
