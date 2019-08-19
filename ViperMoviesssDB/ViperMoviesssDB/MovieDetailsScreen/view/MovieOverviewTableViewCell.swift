@@ -10,6 +10,7 @@ import UIKit
 
 class MovieOverviewTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var overviewLabel: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

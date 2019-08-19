@@ -138,11 +138,18 @@ extension MovieHomeScreenView : UITableViewDelegate,
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("Selected \(indexPath)")
     }
+    
+    
 }
 
 extension MovieHomeScreenView: NowPlayingCollectionViewCellDelegate{
     func collectionView(collectioncell: NowPlayingCollectionViewCell?, didTappedInTableview TableCell: NowPlayingTableViewCell) {
+        
+        let movie = Movie(voteCount: 0, id: 0, video: false, voteAverage: 7.2, title: "Piratas do Carible", popularity: 8.9, posterPath: nil, originalLanguage: .en, originalTitle: "Piratas", genreIDS: [0], backdropPath: nil, adult: false, overview: "Teste overview", releaseDate: "20-12-2012")
+        
         print("didTappedInTableView cell")
+        
+        presenter?.showMovieDetails(with: movie, from: self)
     }
     
     

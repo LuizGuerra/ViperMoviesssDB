@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="cAx-i6-vq2">
     <device id="retina6_1" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -13,7 +13,7 @@
         <!--Movie Details-->
         <scene sceneID="Kdk-a2-hcR">
             <objects>
-                <viewController id="8CJ-qb-HPr" customClass="MovieDetailsView" customModule="ViperMoviesssDB" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="movieDetailsController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="8CJ-qb-HPr" customClass="MovieDetailsView" customModule="ViperMoviesssDB" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="zyB-Xg-J40">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -22,27 +22,40 @@
                                 <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="overviewCell" id="fhJ-QI-8TI" customClass="MovieOverviewTableViewCell" customModule="ViperMoviesssDB" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="movieOverviewCell" id="iQN-ud-d5f" customClass="MovieOverviewTableViewCell" customModule="ViperMoviesssDB" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="fhJ-QI-8TI" id="pVp-ok-3ah">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="iQN-ud-d5f" id="fsz-HN-UU4">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Us-aR-06h">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CzL-aQ-Gst">
                                                     <rect key="frame" x="20" y="11" width="374" height="22"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="22" id="fc9-dR-scC"/>
+                                                    </constraints>
+                                                    <mutableString key="text">Simba idolises his father, King Mufasa, and takes to heart his own royal destiny. But not everyone in the kingdom celebrates the new cub's arrival. Scar, Mufasa's brother—and former heir to the throne—has plans of his own. The battle for Pride Rock is ravaged with betrayal, tragedy and drama, ultimately resulting in Simba's exile. 
+
+With help from a curious pair of newfound friends, Simba will have to figure out how to grow up and take back what is rightfully his.Simba idolises his father, King Mufasa, and takes to heart his own royal destiny. But not everyone in the kingdom celebrates the new cub's arrival. Scar, Mufasa's brother—and former heir to the throne—has plans of his own. 
+
+The battle for Pride Rock is ravaged with betrayal, tragedy and drama, ultimately resulting in Simba's exile. With help from a curious pair of newfound friends, Simba will have to figure out how to grow up and take back what is rightfully his. 
+
+Simba idolises his father, King Mufasa, and takes to heart his own royal destiny. But not everyone in the kingdom celebrates the new cub's arrival. Scar, Mufasa's brother—and former heir to the throne—has plans of his own. The battle for Pride Rock is ravaged with betrayal, tragedy and drama, ultimately resulting in Simba's exile. With help from a curious pair of newfound friends, Simba will have to figure out how to grow up and take back what is rightfully his. </mutableString>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <color key="textColor" red="0.50980392156862742" green="0.50980392156862742" blue="0.50980392156862742" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="trailingMargin" secondItem="0Us-aR-06h" secondAttribute="trailing" id="8tt-HR-GuZ"/>
-                                                <constraint firstItem="0Us-aR-06h" firstAttribute="top" secondItem="pVp-ok-3ah" secondAttribute="topMargin" id="PCK-J5-APR"/>
-                                                <constraint firstItem="0Us-aR-06h" firstAttribute="leading" secondItem="pVp-ok-3ah" secondAttribute="leadingMargin" id="Xb6-ZW-IGJ"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="0Us-aR-06h" secondAttribute="bottom" id="etE-qT-cbo"/>
+                                                <constraint firstItem="CzL-aQ-Gst" firstAttribute="top" secondItem="fsz-HN-UU4" secondAttribute="topMargin" id="8pq-9v-ezf"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="CzL-aQ-Gst" secondAttribute="trailing" id="Eb6-0S-qMp"/>
+                                                <constraint firstItem="CzL-aQ-Gst" firstAttribute="leading" secondItem="fsz-HN-UU4" secondAttribute="leadingMargin" id="RSA-ff-pTp"/>
+                                                <constraint firstItem="CzL-aQ-Gst" firstAttribute="bottom" secondItem="fsz-HN-UU4" secondAttribute="bottomMargin" id="ssY-uJ-BRg"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="overviewLabel" destination="CzL-aQ-Gst" id="JrU-AA-evw"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -58,7 +71,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Movie Details" id="6rg-XB-7Nd"/>
                     <connections>
-                        <outlet property="mTableView" destination="TBX-Ur-VE2" id="FBO-Kd-vaP"/>
+                        <outlet property="mTableView" destination="TBX-Ur-VE2" id="6Kb-zr-fEV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AGI-wz-hQd" userLabel="First Responder" sceneMemberID="firstResponder"/>
