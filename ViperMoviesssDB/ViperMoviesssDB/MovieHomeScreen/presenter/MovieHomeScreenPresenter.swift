@@ -34,11 +34,15 @@ class MovieHomeScreenPresenter: MovieHomeScreenPresenterProtocol{
 
 // Communication from interactor
 extension MovieHomeScreenPresenter: MovieHomeScreenOutputInteractorProtocol {
+    
+    
     func popularMoviesDidFetch(movies: [Movie]) {
         view?.showPopularMovies(with: movies)
     }
     
-    func nowPlayingMoviesDidFetch(movies: [Movie]) {
+    func nowPlayingMoviesDidFetch(movies: [Result]?) {
+        print("nowPlayingMoviesDidFetch")
+        //print(movies)
         view?.showNowPlayingMovies(with: movies)
     }
     

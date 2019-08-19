@@ -16,6 +16,7 @@ class MovieHomeScreenInteractor:  MovieHomeScreenInputInteractorProtocol{
     func getPlayingNowMovies() {
         FetchFirstPageMovieData.shared.fetchData(completion: { results in
             print("Received results = \(results)")
+            self.presenter?.nowPlayingMoviesDidFetch(movies: results)
         })
     }
     

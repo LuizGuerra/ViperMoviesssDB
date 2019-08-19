@@ -32,6 +32,7 @@ class MovieHomeScreenRouter: MovieHomeScreenRouterProtocol {
         
         homeScreenRef.presenter = presenter
         homeScreenRef.presenter?.wireframe = MovieHomeScreenRouter()
+        homeScreenRef.presenter?.view = homeScreenRef
         homeScreenRef.presenter?.interactor = MovieHomeScreenInteractor()
         homeScreenRef.presenter?.interactor?.presenter = presenter
     }
