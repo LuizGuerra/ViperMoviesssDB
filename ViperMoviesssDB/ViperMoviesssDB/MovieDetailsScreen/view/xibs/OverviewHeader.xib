@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="wmY-c5-p9P" customClass="OverviewViewHeader" customModule="ViperMoviesssDB" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="64"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="huT-VJ-DR3">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="64"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Overview" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tRZ-vr-Xl6">
+                            <rect key="frame" x="16" y="23.5" width="60.5" height="17"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="tRZ-vr-Xl6" firstAttribute="leading" secondItem="huT-VJ-DR3" secondAttribute="leadingMargin" constant="8" id="Ft2-MD-gsh"/>
+                        <constraint firstItem="tRZ-vr-Xl6" firstAttribute="centerY" secondItem="huT-VJ-DR3" secondAttribute="centerY" id="gAP-s3-i4i"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="huT-VJ-DR3" firstAttribute="leading" secondItem="vgr-i9-uQo" secondAttribute="leading" id="3pE-bQ-7WP"/>
+                <constraint firstAttribute="bottom" secondItem="huT-VJ-DR3" secondAttribute="bottom" id="9gT-ud-hQB"/>
+                <constraint firstItem="vgr-i9-uQo" firstAttribute="trailing" secondItem="huT-VJ-DR3" secondAttribute="trailing" id="JwX-6F-XEg"/>
+                <constraint firstItem="huT-VJ-DR3" firstAttribute="top" secondItem="wmY-c5-p9P" secondAttribute="top" id="mdH-4U-2uL"/>
+            </constraints>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vgr-i9-uQo"/>
+            <point key="canvasLocation" x="89" y="155"/>
+        </view>
+    </objects>
+</document>

@@ -11,42 +11,44 @@ import UIKit
 /// MovieHomeScreen Module View
 class MovieHomeScreenView: UIViewController {
     
-    private let ui = MovieHomeScreenViewUI()
-    private var presenter: MovieHomeScreenPresenterProtocol!
     
-    private var object : MovieHomeScreenEntity?
-    
-
+    var presenter: MovieHomeScreenPresenterProtocol?
     @IBOutlet weak var tableView: UITableView!
     
-    
-   
+    var nowPlayingMovies: [Movie]?
+    var popularMovies: [Movie]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        presenter = MovieHomeScreenPresenter(view: self)
         
-        // Informs the Presenter that the View is ready to receive data.
-        presenter.fetch(objectFor: self)
+        // Dependency injection and module initialization
+        MovieHomeScreenRouter.homeScreenModuleCreator(homeScreenRef: self)
         
+        configureView()
+        
+        presenter?.viewDidLoad()
+        
+    }
+    
+    func configureView(){
+        
+        //Setup navigation bar title
         self.navigationController?.navigationBar.prefersLargeTitles = true
-        
-        
         let search = UISearchController(searchResultsController: nil)
         search.searchBar.placeholder = "Search"
-        
-        //search.searchBar.barTintColor = UIColor(displayP3Red: 142.0/255, green: 142.0/255, blue: 147.0/255, alpha: 1.0)
-       
-        //search.searchBar.backgroundColor = UIColor(displayP3Red: 142.0/255, green: 142.0/255, blue: 147.0/255, alpha: 0.12)
         self.navigationItem.searchController = search
         
-        
-        // Do any additional setup after loading the view, typically from a nib.
+        //Now playing movies Xib Cell
         let nowPlayingNib = UINib(nibName: "NowPlayingTableViewCell", bundle: nil)
         self.tableView.register(nowPlayingNib, forCellReuseIdentifier: "NowPlayingTableViewCell")
         
+        // Popular movie Xib Cell
         let popularMoviesNib = UINib(nibName: "PopularMoviesTableViewCell", bundle: nil)
         self.tableView.register(popularMoviesNib, forCellReuseIdentifier: "PopularMoviesTableViewCell")
+        
+        //Section header for Now Playing section
+        let nowPlayingHeaderNib = UINib.init(nibName: "NowPlayingHeader", bundle: Bundle.main)
+        self.tableView.register(nowPlayingHeaderNib, forHeaderFooterViewReuseIdentifier: "nowPlayingHeaderID")
         
         self.tableView.delegate = self
         self.tableView.dataSource = self
@@ -54,36 +56,23 @@ class MovieHomeScreenView: UIViewController {
         self.tableView.estimatedRowHeight = 308
         self.tableView.rowHeight = UITableView.automaticDimension
         
-        
     }
-    
-    
     
 }
 
-// MARK: - extending MovieHomeScreenView to implement it's protocol
 extension MovieHomeScreenView: MovieHomeScreenViewProtocol {
-    func set(object: MovieHomeScreenEntity) {
-        
+   
+    // Presenter -> View
+    func showNowPlayingMovies(with movies: [Movie]?){
+        nowPlayingMovies = movies
+        tableView.reloadData()
     }
     
-    
-}
-
-// MARK: - extending MovieHomeScreenView to implement the custom ui view delegate
-extension MovieHomeScreenView: MovieHomeScreenViewUIDelegate {
-    
-}
-
-// MARK: - extending MovieHomeScreenView to implement the custom ui view data source
-extension MovieHomeScreenView: MovieHomeScreenViewUIDataSource {
-    func objectFor(ui: MovieHomeScreenViewUI) -> MovieHomeScreenEntity {
-         return MovieHomeScreenEntity()
+    func showPopularMovies(with movies: [Movie]?){
+        popularMovies = movies
+        tableView.reloadData()
     }
-    
-    // Pass the pre-defined object to the dataSource.
 }
-
 
 extension MovieHomeScreenView : UITableViewDelegate,
     UITableViewDataSource{
@@ -122,6 +111,7 @@ extension MovieHomeScreenView : UITableViewDelegate,
         
         if indexPath.section == 0{
             let cell = tableView.dequeueReusableCell(withIdentifier: "NowPlayingTableViewCell") as! NowPlayingTableViewCell
+            cell.cellDelegate = self
             cell.movies = nil
             return cell
         }else{
@@ -130,5 +120,38 @@ extension MovieHomeScreenView : UITableViewDelegate,
         }
     }
     
+    // Make the background color show through
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        
+        if section == 0{
+            let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: "nowPlayingHeaderID") as! NowPlayingViewHeader
+            return headerView
+        }else {
+            return nil
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 64
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("Selected \(indexPath)")
+    }
+    
     
 }
+
+extension MovieHomeScreenView: NowPlayingCollectionViewCellDelegate{
+    func collectionView(collectioncell: NowPlayingCollectionViewCell?, didTappedInTableview TableCell: NowPlayingTableViewCell) {
+        
+        let movie = Movie(voteCount: 0, id: 0, video: false, voteAverage: 7.2, title: "Piratas do Carible", popularity: 8.9, posterPath: nil, originalLanguage: .en, originalTitle: "Piratas", genreIDS: [0], backdropPath: nil, adult: false, overview: "Teste overview", releaseDate: "20-12-2012")
+        
+        print("didTappedInTableView cell")
+        
+        presenter?.showMovieDetails(with: movie, from: self)
+    }
+    
+    
+}
+
