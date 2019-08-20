@@ -9,7 +9,9 @@
 import UIKit
 
 class NowPlayingViewHeader: UITableViewHeaderFooterView {
+    
 
+    @IBOutlet weak var seeAllButton: UIButton!
     /*
     // Only override draw() if you perform custom drawing.
     // An empty implementation adversely affects performance during animation.

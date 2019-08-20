@@ -62,6 +62,12 @@ class MovieHomeScreenView: UIViewController {
         
     }
     
+    @objc func seeAllButtonClicked(sender:UIButton)
+    {
+        
+        print("seeAllButtonClicked")
+    }
+    
 }
 
 extension MovieHomeScreenView: MovieHomeScreenViewProtocol {
@@ -176,6 +182,9 @@ extension MovieHomeScreenView : UITableViewDelegate,
         else{
             if section == 0{
                 let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: "nowPlayingHeaderID") as! NowPlayingViewHeader
+                
+                headerView.seeAllButton.addTarget(self, action:#selector(self.seeAllButtonClicked), for: .touchUpInside)
+           
                 return headerView
             }else {
                 return nil
