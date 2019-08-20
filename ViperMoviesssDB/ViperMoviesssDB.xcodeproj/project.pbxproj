@@ -244,7 +244,6 @@
 				04E438DB23049D280056E4C5 /* Resources */,
 				04E438EA23049E160056E4C5 /* MovieHomeScreen */,
 				F10488C32305C33900EE61F8 /* MovieDetailsScreen */,
-				F1489985230B3580001CB9BC /* SearchMovieScreen */,
 				04E438AA23049A8A0056E4C5 /* AppDelegate.swift */,
 				04E438AC23049A8A0056E4C5 /* ViewController.swift */,
 				04E438AE23049A8A0056E4C5 /* Main.storyboard */,
@@ -439,37 +438,6 @@
 			children = (
 			);
 			path = protocols;
-			sourceTree = "<group>";
-		};
-		F1489985230B3580001CB9BC /* SearchMovieScreen */ = {
-			isa = PBXGroup;
-			children = (
-				F1489988230B35A9001CB9BC /* interactor */,
-				F1489987230B35A0001CB9BC /* entity */,
-				F1489986230B3598001CB9BC /* protocols */,
-			);
-			path = SearchMovieScreen;
-			sourceTree = "<group>";
-		};
-		F1489986230B3598001CB9BC /* protocols */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = protocols;
-			sourceTree = "<group>";
-		};
-		F1489987230B35A0001CB9BC /* entity */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = entity;
-			sourceTree = "<group>";
-		};
-		F1489988230B35A9001CB9BC /* interactor */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = interactor;
 			sourceTree = "<group>";
 		};
 		F1797DC323072212007C3FCF /* xibs */ = {
