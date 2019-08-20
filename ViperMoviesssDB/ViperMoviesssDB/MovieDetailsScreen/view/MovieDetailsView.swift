@@ -13,7 +13,7 @@ class MovieDetailsView: UIViewController {
     
 
     var presenter: MovieDetailsPresenterProtocol?
-    var movie: Result?
+    var movie: GlobalMovie?
     
     @IBOutlet weak var mTableView: UITableView!
     
@@ -50,7 +50,7 @@ class MovieDetailsView: UIViewController {
 
 // MARK: - extending MovieDetailsView to implement it's protocol
 extension MovieDetailsView: MovieDetailsViewProtocol {
-    func showMovieDetails(with movie: Result?) {
+    func showMovieDetails(with movie: GlobalMovie?) {
         self.movie = movie
         print("Movie from home screen")
         print(movie)

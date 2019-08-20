@@ -15,8 +15,8 @@ class MovieHomeScreenView: UIViewController {
     var presenter: MovieHomeScreenPresenterProtocol?
     @IBOutlet weak var tableView: UITableView!
     
-    var nowPlayingMovies: [Result]?
-    var popularMovies: [Result]?
+    var nowPlayingMovies: [GlobalMovie]?
+    var popularMovies: [GlobalMovie]?
     
     var isSearchingMovie = false
     
@@ -71,22 +71,33 @@ class MovieHomeScreenView: UIViewController {
 extension MovieHomeScreenView: MovieHomeScreenViewProtocol {
    
     // Presenter -> View comunication
-    func showNowPlayingMovies(with movies: [Result]?){
+    func showNowPlayingMovies(with movies: [GlobalMovie]?){
+        
+        //print(movies)
         nowPlayingMovies = movies
-        DispatchQueue.main.sync {
-            tableView.reloadData()
+        
+        print("showNowPlayingMovies =  \(nowPlayingMovies)")
+        
+        
+       
+        DispatchQueue.main.async {
+            self.tableView.reloadInputViews()
+            self.tableView.reloadData()
+            
+           
         }
+
         
     }
     
-    func showPopularMovies(with movies: [Result]?){
+    func showPopularMovies(with movies: [GlobalMovie]?){
         popularMovies = movies
-        print("showPopularMovies")
-        print(movies)
-        DispatchQueue.main.sync {
-            tableView.reloadInputViews()
-            tableView.reloadData()
-        }
+        print("showPopularMovies \(popularMovies)")
+
+//        DispatchQueue.main.sync {
+//            tableView.reloadInputViews()
+//            tableView.reloadData()
+//        }
     }
 }
 
@@ -164,7 +175,10 @@ extension MovieHomeScreenView : UITableViewDelegate,
                 //Now Playing section
                 let cell = tableView.dequeueReusableCell(withIdentifier: "NowPlayingTableViewCell") as! NowPlayingTableViewCell
                 cell.cellDelegate = self
+                cell.mCollectionView.reloadData()
+                print("nowPlayingMovies \(nowPlayingMovies?.count ?? 0)")
                 cell.movies = nowPlayingMovies
+                
                 return cell
             }else{
                 // Popular Movies Section
@@ -172,6 +186,8 @@ extension MovieHomeScreenView : UITableViewDelegate,
                 cell.detailLabel.text = popularMovies?[indexPath.row].overview
                 cell.titleLabel.text = popularMovies?[indexPath.row].title
                 cell.votesLabel.text = String(popularMovies?[indexPath.row].voteAverage ?? 0)
+                
+                
                 
                 //cell.albumImage.image = UIImage(data: <#T##Data#>)
                 

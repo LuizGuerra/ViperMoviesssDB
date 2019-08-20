@@ -12,7 +12,9 @@ final class FetchPopularMovieData: FetchPopularMooviesProtocol {
     
     static let shared:FetchPopularMovieData = FetchPopularMovieData()
     
-    func fetchData(completion: @escaping ([Result]?)->Void) {
+    var results:[GlobalMovie]?
+    
+    func fetchData(completion: @escaping ([GlobalMovie]?)->Void) {
         
         guard let url = URL(string: "https://api.themoviedb.org/3/movie/popular?api_key=e7874dc70ec5827126c27e68c1c85962&language=en-US&page=1") else { return }
         
@@ -23,8 +25,21 @@ final class FetchPopularMovieData: FetchPopularMooviesProtocol {
                 do {
 
                     let pr = try JSONDecoder().decode(PopularMoviesResult.self, from: jsonAsString)
-                    print(pr)
-                    completion(pr.results)
+                    
+//                    self.results = [GlobalMovie]()
+//                    for result in pr.results{
+//                        FetchMovieData.shared.fetchImage(posterPath: result.posterPath){imageData in
+//                            print(imageData.debugDescription)
+//                            let movie = GlobalMovie(title: result.title,
+//                                                    overview: result.overview,
+//                                                    voteAverage: result.voteAverage,
+//                                                    albumImage: imageData)
+//
+//                            self.results?.append(movie)
+//                        }
+//                    }
+
+                    completion(nil)
                 } catch {
                     print(error.localizedDescription)
                     print("error3")
@@ -38,20 +53,15 @@ final class FetchPopularMovieData: FetchPopularMooviesProtocol {
 }
 
 extension FetchPopularMovieData: FetchImageDataProtocol {
-    
-    
-//  Can return empty data, if returns empty data, set "could not load image"
-    func fetchImage(posterPath: String) -> Data {
-        
-        guard let url = URL(string: "https://image.tmdb.org/t/p/w500\(posterPath)") else { return Data() }
+    func fetchImage(posterPath: String, completion: @escaping (Data) -> Void) {
+        guard let url = URL(string: "https://image.tmdb.org/t/p/w500\(posterPath)") else { return completion(Data())}
         
         URLSession.shared.dataTask(with: url) { data, reponse, error in
             guard let imageData = data else { return }
-            DispatchQueue.main.async {
-                return imageData
-            }
-            }.resume()
-        return Data()
+            completion(imageData)
+
     }
     
+    
+    }
 }

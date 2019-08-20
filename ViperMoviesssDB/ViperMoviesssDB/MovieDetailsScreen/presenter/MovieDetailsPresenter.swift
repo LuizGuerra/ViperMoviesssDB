@@ -10,11 +10,11 @@ import UIKit
 
 /// MovieDetails Module Presenter
 class MovieDetailsPresenter: MovieDetailsPresenterProtocol {
-    
+
     var view: MovieDetailsViewProtocol?
     var interactor: MovieDetailsInteractorProtocol?
     var wireframe: MovieDetailsRouterProtocol?
-    var movie: Result?
+    var movie: GlobalMovie?
     
     func viewDidLoad() {
         view?.showMovieDetails(with: movie)

@@ -8,7 +8,9 @@
 
 import Foundation
 
-class FetchMovieData: FetchMovieDataProtocol {
+final class FetchMovieData: FetchMovieDataProtocol {
+    
+    static let shared = FetchMovieData()
     
     func fetchMovieData(movieId: String) {
         
@@ -33,16 +35,17 @@ class FetchMovieData: FetchMovieDataProtocol {
 extension FetchMovieData: FetchImageDataProtocol {
     
 //  Can return empty data, if returns empty data, set "could not load image"
-    func fetchImage(posterPath: String) -> Data {
+    func fetchImage(posterPath: String,completion: @escaping (Data)->Void){
         
-        guard let url = URL(string: "https://image.tmdb.org/t/p/w500\(posterPath)") else { return Data() }
+        guard let url = URL(string: "https://image.tmdb.org/t/p/w500\(posterPath)") else { return completion(Data())}
         
         URLSession.shared.dataTask(with: url) { data, reponse, error in
             guard let imageData = data else { return }
-            DispatchQueue.main.async {
-                return imageData
-            }
+            print("Fetching data")
+            print(imageData)
+            completion(imageData)
+           
             }.resume()
-        return Data()
+       
     }
 }

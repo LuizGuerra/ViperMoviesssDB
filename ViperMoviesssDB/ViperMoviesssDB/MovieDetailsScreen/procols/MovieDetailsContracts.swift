@@ -12,7 +12,7 @@ import UIKit
 
 protocol MovieDetailsViewProtocol: class {
     //Presenter -> View
-    func showMovieDetails(with movie:Result?)
+    func showMovieDetails(with movie:GlobalMovie?)
 }
 
 //MARK: Interactor
@@ -25,7 +25,7 @@ protocol MovieDetailsPresenterProtocol {
     var interactor: MovieDetailsInteractorProtocol? {get set}
     var view: MovieDetailsViewProtocol? {get set}
     var wireframe: MovieDetailsRouterProtocol? {get set}
-    var movie: Result? {get set}
+    var movie: GlobalMovie? {get set}
     
     //View -> Presenter
     func viewDidLoad()

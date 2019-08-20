@@ -24,5 +24,9 @@ class MovieHomeScreenInteractor:  MovieHomeScreenInputInteractorProtocol{
             self.presenter?.popularMoviesDidFetch(movies: result)
         }
     }
+    
+    func getMovieAlbumImages(with posterPath: [String]) {
+        
+    }
 
 }
