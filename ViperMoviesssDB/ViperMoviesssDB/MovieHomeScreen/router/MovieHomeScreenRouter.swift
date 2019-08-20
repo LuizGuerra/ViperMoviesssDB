@@ -10,6 +10,7 @@ import UIKit
 
 /// MovieHomeScreen Module Router (aka: Wireframe)
 class MovieHomeScreenRouter: MovieHomeScreenRouterProtocol {
+    
     func showMovieDetails(with movie: Result?, from view: UIViewController) {
         let movieDetailsStoryboard = UIStoryboard(name: "MovieDetails", bundle: nil)
         
@@ -22,6 +23,19 @@ class MovieHomeScreenRouter: MovieHomeScreenRouterProtocol {
     }
     
     func showNowPlayingSeeAllMovies(from view: UIViewController) {
+        
+        print("showNowPlayingSeeAllMovies")
+        
+        let nowPlayingStoryBoard = UIStoryboard(name: "NowPlaying", bundle: nil)
+        let nowPlayingVC = nowPlayingStoryBoard.instantiateViewController(withIdentifier: "nowPlayingViewController") as! NowPlayingView
+        
+        NowPlayingRouter.homeScreenModuleCreator(playingNowRef: nowPlayingVC)
+        
+        view.navigationController?.pushViewController(nowPlayingVC, animated: false)
+        
+    }
+    
+    func showPopularMoviesScreen(from view: UIViewController) {
         
         
     }

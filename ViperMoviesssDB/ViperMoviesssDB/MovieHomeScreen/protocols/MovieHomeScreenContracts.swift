@@ -45,6 +45,7 @@ protocol MovieHomeScreenPresenterProtocol {
     func viewDidLoad()
     
     func showMovieDetails(with movie: Result?, from view: UIViewController)
+    func showNowPlayingSeeAllMovies(from view:UIViewController)
     
     
 }
@@ -56,4 +57,5 @@ protocol MovieHomeScreenRouterProtocol {
     //Presenter -> Wireframe
     func showMovieDetails(with movie:Result?,from view:UIViewController)
     func showNowPlayingSeeAllMovies(from view:UIViewController)
+    
 }

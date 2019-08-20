@@ -12,7 +12,8 @@ import UIKit
 class NowPlayingView: UIViewController {
     
     
-    private var presenter: NowPlayingPresenterProtocol!
+    @IBOutlet weak var playingNowCollectionView: UICollectionView!
+    var presenter: NowPlayingPresenterProtocol?
     
     private var object : NowPlayingEntity?
     
@@ -20,8 +21,13 @@ class NowPlayingView: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        presenter = NowPlayingPresenter(view: self)
+        
 
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        //Setup navigation bar title
+        self.navigationController?.navigationBar.prefersLargeTitles = false
     }
     
 }

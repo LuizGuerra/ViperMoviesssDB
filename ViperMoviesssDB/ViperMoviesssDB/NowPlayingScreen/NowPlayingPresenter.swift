@@ -9,20 +9,12 @@
 import UIKit
 
 /// NowPlaying Module Presenter
-class NowPlayingPresenter {
+class NowPlayingPresenter: NowPlayingPresenterProtocol {
     
-    weak private var _view: NowPlayingViewProtocol?
-    private var interactor: NowPlayingInteractorProtocol
-    private var wireframe: NowPlayingRouterProtocol
+    var view: NowPlayingViewProtocol?
+    var interactor: NowPlayingInteractorProtocol?
+    var wireframe: NowPlayingRouterProtocol?
     
-    init(view: NowPlayingViewProtocol) {
-        self._view = view
-        self.interactor = NowPlayingInteractor()
-        self.wireframe = NowPlayingRouter()
-    }
-}
-
-// MARK: - extending NowPlayingPresenter to implement it's protocol
-extension NowPlayingPresenter: NowPlayingPresenterProtocol {
+    
     
 }

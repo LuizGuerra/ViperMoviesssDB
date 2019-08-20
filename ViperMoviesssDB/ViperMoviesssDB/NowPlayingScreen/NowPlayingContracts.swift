@@ -20,11 +20,16 @@ protocol NowPlayingViewProtocol: class {
 /// NowPlaying Module Interactor Protocol
 protocol NowPlayingInteractorProtocol {
     // Fetch Object from Data Layer
+    var presenter: NowPlayingPresenterProtocol? {get set}
 }
 
 //MARK: Presenter -
 /// NowPlaying Module Presenter Protocol
 protocol NowPlayingPresenterProtocol {
+    
+    var interactor: NowPlayingInteractorProtocol? {get set}
+    var view: NowPlayingViewProtocol? {get set}
+    var wireframe: NowPlayingRouterProtocol? {get set}
    
 }
 

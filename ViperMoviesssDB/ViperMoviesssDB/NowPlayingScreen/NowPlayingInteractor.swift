@@ -10,5 +10,7 @@ import UIKit
 
 /// NowPlaying Module Interactor
 class NowPlayingInteractor: NowPlayingInteractorProtocol {
+    
+    var presenter: NowPlayingPresenterProtocol?
 
 }

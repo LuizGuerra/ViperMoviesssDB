@@ -12,6 +12,7 @@ import UIKit
 class MovieHomeScreenPresenter: MovieHomeScreenPresenterProtocol{
     
     
+
    
     var view: MovieHomeScreenViewProtocol?
     var interactor: MovieHomeScreenInputInteractorProtocol?
@@ -28,6 +29,10 @@ class MovieHomeScreenPresenter: MovieHomeScreenPresenterProtocol{
         wireframe?.showMovieDetails(with: movie, from: view)
     }
     
+    func showNowPlayingSeeAllMovies(from view: UIViewController) {
+        wireframe?.showNowPlayingSeeAllMovies(from: view)
+
+    }
     
 }
 

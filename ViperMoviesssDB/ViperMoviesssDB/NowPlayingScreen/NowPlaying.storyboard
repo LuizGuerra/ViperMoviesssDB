@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Now Playing-->
+        <scene sceneID="x99-Nk-awU">
+            <objects>
+                <viewController storyboardIdentifier="nowPlayingViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="48D-0R-rru" customClass="NowPlayingView" customModule="ViperMoviesssDB" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Ro8-sC-FAm">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Showing 20 results" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fv2-ON-MtN">
+                                <rect key="frame" x="22" y="108" width="392" height="18"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                <color key="textColor" red="0.59215686274509804" green="0.59215686274509804" blue="0.59215686274509804" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" restorationIdentifier="nowPlayingCollectionView" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="99t-KM-ECE">
+                                <rect key="frame" x="22" y="146" width="370" height="716"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="wlf-kJ-dkU">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="nowPlayingCellCollectionViewId" id="s0F-ot-uhp" customClass="NowPlayingCollectionViewCell" customModule="ViperMoviesssDB" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </view>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Fv2-ON-MtN" firstAttribute="leading" secondItem="ysn-ne-ftr" secondAttribute="leading" constant="22" id="22C-E1-1ad"/>
+                            <constraint firstItem="ysn-ne-ftr" firstAttribute="bottom" secondItem="99t-KM-ECE" secondAttribute="bottom" id="2oj-1s-kdV"/>
+                            <constraint firstItem="99t-KM-ECE" firstAttribute="leading" secondItem="ysn-ne-ftr" secondAttribute="leading" constant="22" id="Xyb-Fi-oDy"/>
+                            <constraint firstItem="99t-KM-ECE" firstAttribute="top" secondItem="Fv2-ON-MtN" secondAttribute="bottom" constant="20" id="d95-Q1-rKW"/>
+                            <constraint firstItem="Fv2-ON-MtN" firstAttribute="top" secondItem="ysn-ne-ftr" secondAttribute="top" constant="20" id="geJ-af-3no"/>
+                            <constraint firstItem="ysn-ne-ftr" firstAttribute="trailing" secondItem="99t-KM-ECE" secondAttribute="trailing" constant="22" id="m1W-3h-cAM"/>
+                            <constraint firstItem="ysn-ne-ftr" firstAttribute="trailing" secondItem="Fv2-ON-MtN" secondAttribute="trailing" id="rxq-fB-jYB"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="ysn-ne-ftr"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Now Playing" id="hcL-Cx-PKk"/>
+                    <connections>
+                        <outlet property="playingNowCollectionView" destination="99t-KM-ECE" id="3po-bE-u2U"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OOd-dQ-cQF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="734.78260869565224" y="274.55357142857139"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="z1M-Gi-uhJ">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="L66-LG-ML9" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="aqD-YO-4og">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="48D-0R-rru" kind="relationship" relationship="rootViewController" id="0AX-jr-ua1"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3aA-tj-PdV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-175.36231884057972" y="274.55357142857139"/>
+        </scene>
+    </scenes>
+</document>

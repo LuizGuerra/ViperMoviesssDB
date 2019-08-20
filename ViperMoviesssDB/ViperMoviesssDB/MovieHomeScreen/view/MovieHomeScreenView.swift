@@ -66,6 +66,7 @@ class MovieHomeScreenView: UIViewController {
     {
         
         print("seeAllButtonClicked")
+        presenter?.showNowPlayingSeeAllMovies(from: self)
     }
     
 }
@@ -75,8 +76,6 @@ extension MovieHomeScreenView: MovieHomeScreenViewProtocol {
     // Presenter -> View
     func showNowPlayingMovies(with movies: [Result]?){
         nowPlayingMovies = movies
-        print("Show now playing movies")
-        print(nowPlayingMovies)
         DispatchQueue.main.sync {
             tableView.reloadData()
         }
