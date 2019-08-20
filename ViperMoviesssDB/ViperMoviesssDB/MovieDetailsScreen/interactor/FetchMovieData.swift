@@ -21,7 +21,7 @@ class FetchMovieData: FetchMovieDataProtocol {
                     let pr = try JSONDecoder().decode(Movie.self, from: jsonAsString)
                     print(pr)
                 } catch {
-                    print("error")
+                    print(error.localizedDescription)
                 }
             }
             }.resume()

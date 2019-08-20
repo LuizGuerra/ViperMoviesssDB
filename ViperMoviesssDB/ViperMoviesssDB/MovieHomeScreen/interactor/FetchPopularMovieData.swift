@@ -21,16 +21,12 @@ final class FetchPopularMovieData: FetchPopularMooviesProtocol {
             if let data = data {
                 guard let jsonAsString = String(data: data, encoding: .utf8)?.data(using: .utf8) else { return }
                 do {
-                    let json = try JSONSerialization.jsonObject(with: data, options: []) as! [String:Any]
-                    
-                    let results = json["results"]
-                    //print(results)
-                    
+
                     let pr = try JSONDecoder().decode(PopularMoviesResult.self, from: jsonAsString)
                     print(pr)
                 } catch {
                     print(error.localizedDescription)
-                    print("error")
+                    print("error3")
                 }
             }
             }.resume()
