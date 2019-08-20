@@ -73,31 +73,22 @@ extension MovieHomeScreenView: MovieHomeScreenViewProtocol {
     // Presenter -> View comunication
     func showNowPlayingMovies(with movies: [GlobalMovie]?){
         
-        //print(movies)
         nowPlayingMovies = movies
-        
-        print("showNowPlayingMovies =  \(nowPlayingMovies)")
-        
-        
-       
+
         DispatchQueue.main.async {
             self.tableView.reloadInputViews()
             self.tableView.reloadData()
             
-           
         }
 
-        
     }
     
     func showPopularMovies(with movies: [GlobalMovie]?){
         popularMovies = movies
-        print("showPopularMovies \(popularMovies)")
-
-//        DispatchQueue.main.sync {
-//            tableView.reloadInputViews()
-//            tableView.reloadData()
-//        }
+        
+        tableView.reloadInputViews()
+        tableView.reloadData()
+        
     }
 }
 
@@ -187,9 +178,11 @@ extension MovieHomeScreenView : UITableViewDelegate,
                 cell.titleLabel.text = popularMovies?[indexPath.row].title
                 cell.votesLabel.text = String(popularMovies?[indexPath.row].voteAverage ?? 0)
                 
+                if let imageData = popularMovies?[indexPath.row].albumImage{
+                    cell.albumImage.image = UIImage(data: imageData)
+                }
                 
-                
-                //cell.albumImage.image = UIImage(data: <#T##Data#>)
+              
                 
                 return cell
             }

@@ -23,23 +23,33 @@ final class FetchPopularMovieData: FetchPopularMooviesProtocol {
             if let data = data {
                 guard let jsonAsString = String(data: data, encoding: .utf8)?.data(using: .utf8) else { return }
                 do {
-
                     let pr = try JSONDecoder().decode(PopularMoviesResult.self, from: jsonAsString)
+                    self.results = [GlobalMovie]()
                     
-//                    self.results = [GlobalMovie]()
-//                    for result in pr.results{
-//                        FetchMovieData.shared.fetchImage(posterPath: result.posterPath){imageData in
-//                            print(imageData.debugDescription)
-//                            let movie = GlobalMovie(title: result.title,
-//                                                    overview: result.overview,
-//                                                    voteAverage: result.voteAverage,
-//                                                    albumImage: imageData)
-//
-//                            self.results?.append(movie)
-//                        }
-//                    }
+                    let downloadAlbumImagesGroup = DispatchGroup()
+                    
+                    
+                    for result in pr.results{
+                        downloadAlbumImagesGroup.enter()
+                        
+                        
+                        FetchMovieData.shared.fetchImage(posterPath: result.posterPath, completion: { imageData in
+                            
+                            let movie = GlobalMovie(title: result.title,
+                                                    overview: result.overview,
+                                                    voteAverage: result.voteAverage,
+                                                    albumImage: imageData)
+                            self.results?.append(movie)
+                            
+                            downloadAlbumImagesGroup.leave()
+                        })
+                        
+                    }
+                    downloadAlbumImagesGroup.notify(queue: DispatchQueue.main){
+                        print("Loaded all album images ")
+                        completion(self.results)
+                    }
 
-                    completion(nil)
                 } catch {
                     print(error.localizedDescription)
                     print("error3")

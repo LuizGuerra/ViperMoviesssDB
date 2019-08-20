@@ -41,8 +41,6 @@ extension FetchMovieData: FetchImageDataProtocol {
         
         URLSession.shared.dataTask(with: url) { data, reponse, error in
             guard let imageData = data else { return }
-            print("Fetching data")
-            print(imageData)
             completion(imageData)
            
             }.resume()
