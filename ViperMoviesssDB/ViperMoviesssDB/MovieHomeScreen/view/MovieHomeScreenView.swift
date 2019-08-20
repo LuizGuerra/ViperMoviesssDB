@@ -162,7 +162,6 @@ extension MovieHomeScreenView : UITableViewDelegate,
             
             if indexPath.section == 0{
                 //Now Playing section
-                
                 let cell = tableView.dequeueReusableCell(withIdentifier: "NowPlayingTableViewCell") as! NowPlayingTableViewCell
                 cell.cellDelegate = self
                 cell.movies = nowPlayingMovies
@@ -170,7 +169,12 @@ extension MovieHomeScreenView : UITableViewDelegate,
             }else{
                 // Popular Movies Section
                 let cell = tableView.dequeueReusableCell(withIdentifier: "PopularMoviesTableViewCell") as! PopularMoviesTableViewCell
-
+                cell.detailLabel.text = popularMovies?[indexPath.row].overview
+                cell.titleLabel.text = popularMovies?[indexPath.row].title
+                cell.votesLabel.text = String(popularMovies?[indexPath.row].voteAverage ?? 0)
+                
+                //cell.albumImage.image = UIImage(data: <#T##Data#>)
+                
                 return cell
             }
             

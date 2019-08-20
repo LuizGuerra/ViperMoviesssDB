@@ -453,6 +453,7 @@
 		F10488CF2305D00C00EE61F8 /* protocols */ = {
 			isa = PBXGroup;
 			children = (
+				0426799F230B65E700FBC026 /* FetchImageDataProtocol.swift */,
 			);
 			path = protocols;
 			sourceTree = "<group>";
@@ -469,15 +470,6 @@
 				F1390DF9230C54640047024B /* NowPlaying.storyboard */,
 			);
 			path = NowPlayingScreen;
-			sourceTree = "<group>";
-		};
-		F10488CF2305D00C00EE61F8 /* protocols */ = {
-			isa = PBXGroup;
-			children = (
-				F10488D02305D03600EE61F8 /* MovieProtocolAPI.swift */,
-				0426799F230B65E700FBC026 /* FetchImageDataProtocol.swift */,
-			);
-			path = protocols;
 			sourceTree = "<group>";
 		};
 		F1797DC323072212007C3FCF /* xibs */ = {
