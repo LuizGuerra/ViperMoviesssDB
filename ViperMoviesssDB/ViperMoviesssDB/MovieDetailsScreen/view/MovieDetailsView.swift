@@ -12,22 +12,15 @@ import UIKit
 class MovieDetailsView: UIViewController {
     
 
-    private var presenter: MovieDetailsPresenterProtocol!
+    var presenter: MovieDetailsPresenterProtocol?
+    var movie: Result?
     
-    
-  
     @IBOutlet weak var mTableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        //presenter = MovieDetailsPresenter(view: self)
-        
-        // Informs the Presenter that the View is ready to receive data.
-        //presenter.fetch(objectFor: self)
-        
         configureView()
-        
+        presenter?.viewDidLoad()
     }
     
     func configureView(){
@@ -57,6 +50,15 @@ class MovieDetailsView: UIViewController {
 
 // MARK: - extending MovieDetailsView to implement it's protocol
 extension MovieDetailsView: MovieDetailsViewProtocol {
+    func showMovieDetails(with movie: Result?) {
+        self.movie = movie
+        print("Movie from home screen")
+        print(movie)
+        DispatchQueue.main.async {
+            self.mTableView.reloadData()
+        }
+    }
+    
   
     
 }
@@ -67,23 +69,36 @@ extension MovieDetailsView: UITableViewDelegate,
 UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if section == 0{
+        
+        if movie == nil{
             return 0
         }
-        return 1
+        else{
+            if section == 0{
+                return 0
+            }
+            return 1
+        }
+        
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
     
         let cell = tableView.dequeueReusableCell(withIdentifier: "movieOverviewCell") as! MovieOverviewTableViewCell
+        cell.overviewLabel.text = movie?.overview
         return cell
         
     }
     
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
+        if movie == nil{
+            return 0
+        }else{
+            return 2
+        }
+  
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -98,14 +113,14 @@ UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         
-        print(section)
         if section == 0{
-             let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: "movieDetailsHeaderID") as! MovieDetailsViewHeader
+            let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: "movieDetailsHeaderID") as! MovieDetailsViewHeader
+            headerView.titleLabel.text = movie?.title
+            headerView.loadingIndicator.startAnimating()
+            headerView.votesAverage.text = String(movie?.voteAverage ?? 0)
+            
             return headerView
-        }else{
-            print("siw8dhfu8")
         }
-        
         if section == 1{
             let overviewHeaderView = tableView.dequeueReusableHeaderFooterView(withIdentifier: "overviewHeaderID") as! OverviewViewHeader
             print("entrou")

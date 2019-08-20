@@ -8,39 +8,31 @@
 
 import UIKit
 
-//MARK: View -
-/*
- Should replace "class" with "BaseViewProtocol" if available;
- & that will allow the View to act as a UIViewController;
- & Implement common view functions.
- */
-/// MovieDetails Module View Protocol
+//MARK: View 
+
 protocol MovieDetailsViewProtocol: class {
-    // Update UI with value returned.
-    /// Set the view Object of Type MovieDetailsEntity
-    
+    //Presenter -> View
+    func showMovieDetails(with movie:Result?)
 }
 
-//MARK: Interactor -
-/// MovieDetails Module Interactor Protocol
+//MARK: Interactor
 protocol MovieDetailsInteractorProtocol {
-    // Fetch Object from Data Layer
-    func fetch(objectFor presenter: MovieDetailsPresenterProtocol)
+    var presenter: MovieDetailsPresenterProtocol?{get set}
 }
 
-//MARK: Presenter -
-/// MovieDetails Module Presenter Protocol
+//MARK: Presenter 
 protocol MovieDetailsPresenterProtocol {
-    /// The presenter will fetch data from the Interactor thru implementing the Interactor fetch function.
-    func fetch(objectFor view: MovieDetailsViewProtocol)
-
-    /// The Interactor will inform the Presenter a failed fetch.
-    func interactor(_ interactor: MovieDetailsInteractorProtocol, didFailWith error: Error)
+    var interactor: MovieDetailsInteractorProtocol? {get set}
+    var view: MovieDetailsViewProtocol? {get set}
+    var wireframe: MovieDetailsRouterProtocol? {get set}
+    var movie: Result? {get set}
+    
+    //View -> Presenter
+    func viewDidLoad()
 }
 
 //MARK: Router (aka: Wireframe) -
 /// MovieDetails Module Router Protocol
 protocol MovieDetailsRouterProtocol {
-    // Show Details of Entity Object coming from ParentView Controller.
-    // func showDetailsFor(object: MovieDetailsEntity, parentViewController viewController: UIViewController)
+  
 }

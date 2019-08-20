@@ -24,7 +24,7 @@ final class FetchPopularMovieData: FetchPopularMooviesProtocol {
                     let json = try JSONSerialization.jsonObject(with: data, options: []) as! [String:Any]
                     
                     let results = json["results"]
-                    print(results)
+                    //print(results)
                     
                     let pr = try JSONDecoder().decode(PopularMoviesResult.self, from: jsonAsString)
                     print(pr)

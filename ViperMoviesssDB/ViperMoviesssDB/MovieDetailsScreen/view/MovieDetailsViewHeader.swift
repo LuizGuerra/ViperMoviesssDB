@@ -10,12 +10,9 @@ import UIKit
 
 class MovieDetailsViewHeader: UITableViewHeaderFooterView {
 
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
-    }
-    */
-
+    @IBOutlet weak var albumImage: UIImageView!
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var votesAverage: UILabel!
+    
+    @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
 }

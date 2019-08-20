@@ -9,7 +9,7 @@
 import UIKit
 
 protocol NowPlayingCollectionViewCellDelegate:class {
-    func collectionView(collectioncell:NowPlayingCollectionViewCell?, didTappedInTableview TableCell:NowPlayingTableViewCell)
+    func collectionView(didSelectItemAt indexPath: IndexPath)
     //other delegate methods that you can define to perform action in viewcontroller
 }
 
@@ -56,7 +56,7 @@ extension NowPlayingTableViewCell: UICollectionViewDataSource,
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let cell = collectionView.cellForItem(at: indexPath) as? NowPlayingCollectionViewCell
-        self.cellDelegate?.collectionView(collectioncell: cell, didTappedInTableview: self)
+        self.cellDelegate?.collectionView(didSelectItemAt: indexPath)
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {

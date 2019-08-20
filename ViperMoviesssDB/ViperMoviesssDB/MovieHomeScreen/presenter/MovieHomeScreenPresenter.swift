@@ -17,8 +17,6 @@ class MovieHomeScreenPresenter: MovieHomeScreenPresenterProtocol{
     var interactor: MovieHomeScreenInputInteractorProtocol?
     var wireframe: MovieHomeScreenRouterProtocol?
     
-    
-    
     func viewDidLoad() {
         print("viewDidLoad()")
         
@@ -26,7 +24,7 @@ class MovieHomeScreenPresenter: MovieHomeScreenPresenterProtocol{
         interactor?.getPopularMovies()
     }
     
-    func showMovieDetails(with movie: Movie, from view: UIViewController) {
+    func showMovieDetails(with movie: Result?, from view: UIViewController) {
         wireframe?.showMovieDetails(with: movie, from: view)
     }
     

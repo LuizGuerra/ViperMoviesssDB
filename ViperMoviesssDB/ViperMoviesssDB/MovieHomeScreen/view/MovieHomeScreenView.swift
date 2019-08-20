@@ -196,14 +196,12 @@ extension MovieHomeScreenView : UITableViewDelegate,
 }
 
 extension MovieHomeScreenView: NowPlayingCollectionViewCellDelegate{
-    func collectionView(collectioncell: NowPlayingCollectionViewCell?, didTappedInTableview TableCell: NowPlayingTableViewCell) {
-        
-   
-        
-        print("didTappedInTableView cell")
-        
-        //presenter?.showMovieDetails(with: movie, from: self)
+    func collectionView(didSelectItemAt indexPath: IndexPath) {
+        print("didTappedInTableView cell \(indexPath.row)")
+        print(nowPlayingMovies?[indexPath.row])
+        presenter?.showMovieDetails(with: nowPlayingMovies?[indexPath.row], from: self)
     }
+
 }
 
 extension MovieHomeScreenView : UISearchBarDelegate{
