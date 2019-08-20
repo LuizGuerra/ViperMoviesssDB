@@ -12,4 +12,5 @@ enum OriginalLanguage: String, Codable {
     case en = "en"
     case ja = "ja"
     case ko = "ko"
+    case id = "id"
 }

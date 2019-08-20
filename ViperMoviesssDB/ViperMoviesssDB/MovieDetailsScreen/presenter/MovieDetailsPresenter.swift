@@ -9,32 +9,14 @@
 import UIKit
 
 /// MovieDetails Module Presenter
-class MovieDetailsPresenter {
+class MovieDetailsPresenter: MovieDetailsPresenterProtocol {
     
-    weak private var _view: MovieDetailsViewProtocol?
-    private var interactor: MovieDetailsInteractorProtocol
-    private var wireframe: MovieDetailsRouterProtocol
+    var view: MovieDetailsViewProtocol?
+    var interactor: MovieDetailsInteractorProtocol?
+    var wireframe: MovieDetailsRouterProtocol?
+    var movie: Result?
     
-    init(view: MovieDetailsViewProtocol) {
-        self._view = view
-        self.interactor = MovieDetailsInteractor()
-        self.wireframe = MovieDetailsRouter()
+    func viewDidLoad() {
+        view?.showMovieDetails(with: movie)
     }
-}
-
-// MARK: - extending MovieDetailsPresenter to implement it's protocol
-extension MovieDetailsPresenter: MovieDetailsPresenterProtocol {
-    func fetch(objectFor view: MovieDetailsViewProtocol) {
-        
-    }
-    
-    func interactor(_ interactor: MovieDetailsInteractorProtocol, didFetch object: MovieDetailsEntity) {
-        
-    }
-    
-    func interactor(_ interactor: MovieDetailsInteractorProtocol, didFailWith error: Error) {
-        
-    }
-    
-    
 }

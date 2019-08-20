@@ -25,7 +25,7 @@ class InternetHandler: InternetConectionProtocol {
         self.monitor = NWPathMonitor(requiredInterfaceType: .cellular)
         self.queue = DispatchQueue(label: queueName)
         
-        monitorPathUpdateHandler()
+        //monitorPathUpdateHandler()
         
         self.monitor.start(queue: self.queue)
         self.isQueueRunning = true
@@ -62,15 +62,15 @@ class InternetHandler: InternetConectionProtocol {
         
 //        jogar tela dizendo que o usuário n tem conecção com a internet
         
-        <# entre razões e emoções a saída #>
-        <# é fazer, valer a pena #>
+        
+        
     }
     
     func pathIsSatisfied() {
         
         // continuar normalmente? acho que nem precisa dessa validação
         
-        <#MEU DEUS BERG CORRE#>
+        
     }
     
     

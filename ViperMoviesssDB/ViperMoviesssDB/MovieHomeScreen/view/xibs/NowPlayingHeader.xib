@@ -25,22 +25,22 @@
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="See All" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P62-9Z-WYY">
-                            <rect key="frame" x="357.5" y="22" width="44.5" height="20"/>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LHH-q4-d97">
+                            <rect key="frame" x="356" y="17" width="45" height="30"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
-                            <nil key="highlightedColor"/>
-                        </label>
+                            <state key="normal" title="See All">
+                                <color key="titleColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                            </state>
+                        </button>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstItem="qKy-Co-rAQ" firstAttribute="top" secondItem="ycj-qY-1xO" secondAttribute="top" constant="22" id="9wW-6M-GTx"/>
                         <constraint firstItem="qKy-Co-rAQ" firstAttribute="leading" secondItem="ycj-qY-1xO" secondAttribute="leading" constant="15" id="ID7-io-70R"/>
                         <constraint firstAttribute="bottom" secondItem="qKy-Co-rAQ" secondAttribute="bottom" constant="22" id="Mgx-WO-w8E"/>
-                        <constraint firstItem="P62-9Z-WYY" firstAttribute="centerY" secondItem="ycj-qY-1xO" secondAttribute="centerY" id="Vqo-dz-Hto"/>
-                        <constraint firstAttribute="trailing" secondItem="P62-9Z-WYY" secondAttribute="trailing" constant="14" id="YG2-d7-N4c"/>
-                        <constraint firstItem="P62-9Z-WYY" firstAttribute="top" secondItem="ycj-qY-1xO" secondAttribute="top" constant="22" id="hZ3-IQ-E3t"/>
-                        <constraint firstAttribute="bottom" secondItem="P62-9Z-WYY" secondAttribute="bottom" constant="22" id="mzO-CR-Gel"/>
+                        <constraint firstAttribute="bottom" secondItem="LHH-q4-d97" secondAttribute="bottom" constant="17" id="Q3X-OY-QLf"/>
+                        <constraint firstAttribute="trailing" secondItem="LHH-q4-d97" secondAttribute="trailing" constant="15" id="b3c-dc-QBZ"/>
+                        <constraint firstItem="LHH-q4-d97" firstAttribute="top" secondItem="ycj-qY-1xO" secondAttribute="top" constant="17" id="dVg-Ad-4Ao"/>
                     </constraints>
                 </view>
             </subviews>
@@ -56,6 +56,9 @@
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="GKo-BN-8kl"/>
+            <connections>
+                <outlet property="seeAllButton" destination="LHH-q4-d97" id="JLL-L2-913"/>
+            </connections>
             <point key="canvasLocation" x="-1298.5507246376812" y="-383.70535714285711"/>
         </view>
     </objects>

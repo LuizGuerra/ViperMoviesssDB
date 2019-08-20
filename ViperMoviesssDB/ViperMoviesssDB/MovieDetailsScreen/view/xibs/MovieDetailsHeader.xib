@@ -101,6 +101,12 @@
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outlet property="albumImage" destination="0c8-pM-JGu" id="pOY-L4-AGS"/>
+                <outlet property="loadingIndicator" destination="5g2-wp-EkH" id="Ayc-Pr-boF"/>
+                <outlet property="titleLabel" destination="cek-Ep-6va" id="h3o-bz-tIQ"/>
+                <outlet property="votesAverage" destination="3dI-YV-pZQ" id="LVy-nU-2Ce"/>
+            </connections>
             <point key="canvasLocation" x="47.826086956521742" y="34.821428571428569"/>
         </view>
     </objects>

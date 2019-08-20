@@ -15,8 +15,10 @@ class MovieHomeScreenView: UIViewController {
     var presenter: MovieHomeScreenPresenterProtocol?
     @IBOutlet weak var tableView: UITableView!
     
-    var nowPlayingMovies: [Movie]?
-    var popularMovies: [Movie]?
+    var nowPlayingMovies: [Result]?
+    var popularMovies: [Result]?
+    
+    var isSearchingMovie = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,6 +38,7 @@ class MovieHomeScreenView: UIViewController {
         self.navigationController?.navigationBar.prefersLargeTitles = true
         let search = UISearchController(searchResultsController: nil)
         search.searchBar.placeholder = "Search"
+
         self.navigationItem.searchController = search
         self.navigationItem.searchController?.searchBar.delegate = self
         
@@ -59,19 +62,31 @@ class MovieHomeScreenView: UIViewController {
         
     }
     
+    @objc func seeAllButtonClicked(sender:UIButton)
+    {
+        
+        print("seeAllButtonClicked")
+        presenter?.showNowPlayingSeeAllMovies(from: self)
+    }
+    
 }
 
 extension MovieHomeScreenView: MovieHomeScreenViewProtocol {
    
     // Presenter -> View
-    func showNowPlayingMovies(with movies: [Movie]?){
+    func showNowPlayingMovies(with movies: [Result]?){
         nowPlayingMovies = movies
-        tableView.reloadData()
+        DispatchQueue.main.sync {
+            tableView.reloadData()
+        }
+        
     }
     
-    func showPopularMovies(with movies: [Movie]?){
+    func showPopularMovies(with movies: [Result]?){
         popularMovies = movies
-        tableView.reloadData()
+        DispatchQueue.main.sync {
+            tableView.reloadData()
+        }
     }
 }
 
@@ -79,23 +94,47 @@ extension MovieHomeScreenView : UITableViewDelegate,
     UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if section == 0{
+        
+        if !isSearchingMovie{
             return 1
-        } else{
-            return 10
+        }else{
+            if section == 0{
+                // Now Playing section
+                return nowPlayingMovies?.count ?? 0
+            } else{
+                // Popular movies
+                return 1
+            }
         }
+        
+
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
+        
+        
+        if !isSearchingMovie{
+            return 2
+        }else{
+            return 1
+        }
+        
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        if section == 0{
-            return "Now Playing"
+        
+        if !isSearchingMovie{
+            if section == 0{
+                return "Now Playing"
+            }else{
+                return "Popular Movies"
+            }
+            
         }else{
-            return "Popular Movies"
+            return "Showing 20 results"
         }
+        
+        
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -110,26 +149,47 @@ extension MovieHomeScreenView : UITableViewDelegate,
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        if indexPath.section == 0{
+        if isSearchingMovie{
             let cell = tableView.dequeueReusableCell(withIdentifier: "NowPlayingTableViewCell") as! NowPlayingTableViewCell
+            
             cell.cellDelegate = self
             cell.movies = nil
             return cell
         }else{
-            let cell = tableView.dequeueReusableCell(withIdentifier: "PopularMoviesTableViewCell") as! PopularMoviesTableViewCell
-            return cell
+            
+            if indexPath.section == 0{
+                //Now Playing section
+                
+                let cell = tableView.dequeueReusableCell(withIdentifier: "NowPlayingTableViewCell") as! NowPlayingTableViewCell
+                cell.cellDelegate = self
+                cell.movies = nowPlayingMovies
+                return cell
+            }else{
+                // Popular Movies Section
+                let cell = tableView.dequeueReusableCell(withIdentifier: "PopularMoviesTableViewCell") as! PopularMoviesTableViewCell
+                return cell
+            }
+            
         }
     }
     
     // Make the background color show through
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        
-        if section == 0{
-            let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: "nowPlayingHeaderID") as! NowPlayingViewHeader
-            return headerView
-        } else {
+        if isSearchingMovie{
             return nil
         }
+        else{
+            if section == 0{
+                let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: "nowPlayingHeaderID") as! NowPlayingViewHeader
+                
+                headerView.seeAllButton.addTarget(self, action:#selector(self.seeAllButtonClicked), for: .touchUpInside)
+           
+                return headerView
+            }else {
+                return nil
+            }
+        }
+        
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -144,21 +204,46 @@ extension MovieHomeScreenView : UITableViewDelegate,
 }
 
 extension MovieHomeScreenView: NowPlayingCollectionViewCellDelegate{
-    func collectionView(collectioncell: NowPlayingCollectionViewCell?, didTappedInTableview TableCell: NowPlayingTableViewCell) {
-        
-        let movie = Movie(voteCount: 0, id: 0, video: false, voteAverage: 7.2, title: "Piratas do Carible", popularity: 8.9, posterPath: nil, originalLanguage: .en, originalTitle: "Piratas", genreIDS: [0], backdropPath: nil, adult: false, overview: "Teste overview", releaseDate: "20-12-2012")
-        
-        print("didTappedInTableView cell")
-        
-        presenter?.showMovieDetails(with: movie, from: self)
+    func collectionView(didSelectItemAt indexPath: IndexPath) {
+        print("didTappedInTableView cell \(indexPath.row)")
+        print(nowPlayingMovies?[indexPath.row])
+        presenter?.showMovieDetails(with: nowPlayingMovies?[indexPath.row], from: self)
     }
+
 }
 
 extension MovieHomeScreenView : UISearchBarDelegate{
     func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        isSearchingMovie = true
+        
+        if searchBar.text == ""{
+            isSearchingMovie = false
+        }
+        
         print(searchBar.text)
+        DispatchQueue.main.async {
+            self.tableView.reloadInputViews()
+            self.tableView.reloadData()
+        }
+        
     }
     
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        isSearchingMovie = true
+        DispatchQueue.main.async {
+            self.tableView.reloadInputViews()
+            self.tableView.reloadData()
+        }
+    }
     
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        isSearchingMovie = false
+        print("searchBarSearchButtonClicked")
+        DispatchQueue.main.async {
+            self.tableView.reloadInputViews()
+            self.tableView.reloadData()
+        }
+    }
+   
 }
 
