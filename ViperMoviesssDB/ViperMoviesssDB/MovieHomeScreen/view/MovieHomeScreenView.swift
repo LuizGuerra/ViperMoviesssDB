@@ -38,6 +38,7 @@ class MovieHomeScreenView: UIViewController {
         self.navigationController?.navigationBar.prefersLargeTitles = true
         let search = UISearchController(searchResultsController: nil)
         search.searchBar.placeholder = "Search"
+
         self.navigationItem.searchController = search
         self.navigationItem.searchController?.searchBar.delegate = self
         
@@ -208,6 +209,11 @@ extension MovieHomeScreenView: NowPlayingCollectionViewCellDelegate{
 extension MovieHomeScreenView : UISearchBarDelegate{
     func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
         isSearchingMovie = true
+        
+        if searchBar.text == ""{
+            isSearchingMovie = false
+        }
+        
         print(searchBar.text)
         DispatchQueue.main.async {
             self.tableView.reloadInputViews()
@@ -226,10 +232,12 @@ extension MovieHomeScreenView : UISearchBarDelegate{
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         isSearchingMovie = false
+        print("searchBarSearchButtonClicked")
         DispatchQueue.main.async {
             self.tableView.reloadInputViews()
             self.tableView.reloadData()
         }
     }
+   
 }
 
