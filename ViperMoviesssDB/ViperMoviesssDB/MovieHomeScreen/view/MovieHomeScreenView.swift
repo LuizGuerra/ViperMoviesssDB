@@ -62,10 +62,7 @@ class MovieHomeScreenView: UIViewController {
         
     }
     
-    @objc func seeAllButtonClicked(sender:UIButton)
-    {
-        
-        print("seeAllButtonClicked")
+    @objc func seeAllButtonClicked(sender:UIButton){
         presenter?.showNowPlayingSeeAllMovies(from: self)
     }
     
@@ -73,7 +70,7 @@ class MovieHomeScreenView: UIViewController {
 
 extension MovieHomeScreenView: MovieHomeScreenViewProtocol {
    
-    // Presenter -> View
+    // Presenter -> View comunication
     func showNowPlayingMovies(with movies: [Result]?){
         nowPlayingMovies = movies
         DispatchQueue.main.sync {
@@ -84,7 +81,10 @@ extension MovieHomeScreenView: MovieHomeScreenViewProtocol {
     
     func showPopularMovies(with movies: [Result]?){
         popularMovies = movies
+        print("showPopularMovies")
+        print(movies)
         DispatchQueue.main.sync {
+            tableView.reloadInputViews()
             tableView.reloadData()
         }
     }
@@ -95,28 +95,31 @@ extension MovieHomeScreenView : UITableViewDelegate,
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        if !isSearchingMovie{
+        if isSearchingMovie{
             return 1
         }else{
             if section == 0{
                 // Now Playing section
-                return nowPlayingMovies?.count ?? 0
-            } else{
-                // Popular movies
                 return 1
             }
+            
+            if section == 1{
+                return popularMovies?.count ?? 0
+            }
+            
         }
         
+        return 0
 
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
         
         
-        if !isSearchingMovie{
-            return 2
-        }else{
+        if isSearchingMovie{
             return 1
+        }else{
+            return 2
         }
         
     }
@@ -167,6 +170,7 @@ extension MovieHomeScreenView : UITableViewDelegate,
             }else{
                 // Popular Movies Section
                 let cell = tableView.dequeueReusableCell(withIdentifier: "PopularMoviesTableViewCell") as! PopularMoviesTableViewCell
+
                 return cell
             }
             

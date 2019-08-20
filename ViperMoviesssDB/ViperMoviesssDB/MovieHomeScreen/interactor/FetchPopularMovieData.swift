@@ -24,9 +24,11 @@ final class FetchPopularMovieData: FetchPopularMooviesProtocol {
 
                     let pr = try JSONDecoder().decode(PopularMoviesResult.self, from: jsonAsString)
                     print(pr)
+                    completion(pr.results)
                 } catch {
                     print(error.localizedDescription)
                     print("error3")
+                    completion(nil)
                 }
             }
             }.resume()
