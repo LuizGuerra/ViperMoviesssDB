@@ -205,8 +205,7 @@ extension MovieHomeScreenView : UITableViewDelegate,
 
 extension MovieHomeScreenView: NowPlayingCollectionViewCellDelegate{
     func collectionView(didSelectItemAt indexPath: IndexPath) {
-        print("didTappedInTableView cell \(indexPath.row)")
-        print(nowPlayingMovies?[indexPath.row])
+
         presenter?.showMovieDetails(with: nowPlayingMovies?[indexPath.row], from: self)
     }
 
@@ -220,7 +219,6 @@ extension MovieHomeScreenView : UISearchBarDelegate{
             isSearchingMovie = false
         }
         
-        print(searchBar.text)
         DispatchQueue.main.async {
             self.tableView.reloadInputViews()
             self.tableView.reloadData()
@@ -238,7 +236,6 @@ extension MovieHomeScreenView : UISearchBarDelegate{
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         isSearchingMovie = false
-        print("searchBarSearchButtonClicked")
         DispatchQueue.main.async {
             self.tableView.reloadInputViews()
             self.tableView.reloadData()

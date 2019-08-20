@@ -49,6 +49,6 @@ extension FetchFirstPageMovieData: FetchImageDataProtocol {
                 return imageData
             }
             }.resume()
-        
+        return Data()
     }
 }

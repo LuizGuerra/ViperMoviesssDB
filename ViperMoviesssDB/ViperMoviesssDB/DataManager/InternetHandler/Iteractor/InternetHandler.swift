@@ -24,11 +24,12 @@ class InternetHandler: InternetConectionProtocol {
         
         self.monitor = NWPathMonitor(requiredInterfaceType: .cellular)
         self.queue = DispatchQueue(label: queueName)
+        self.isQueueRunning = true
         
-        //monitorPathUpdateHandler()
+        monitorPathUpdateHandler()
         
         self.monitor.start(queue: self.queue)
-        self.isQueueRunning = true
+        
         
     }
     

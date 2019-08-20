@@ -49,7 +49,7 @@ extension FetchPopularMovieData: FetchImageDataProtocol {
                 return imageData
             }
             }.resume()
-        
+        return Data()
     }
     
 }

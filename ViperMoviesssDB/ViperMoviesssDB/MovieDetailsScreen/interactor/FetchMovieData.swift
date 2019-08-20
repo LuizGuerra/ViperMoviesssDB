@@ -43,6 +43,6 @@ extension FetchMovieData: FetchImageDataProtocol {
                 return imageData
             }
             }.resume()
-        
+        return Data()
     }
 }
