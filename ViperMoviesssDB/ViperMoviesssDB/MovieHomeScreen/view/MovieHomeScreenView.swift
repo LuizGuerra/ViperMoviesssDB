@@ -63,7 +63,7 @@ class MovieHomeScreenView: UIViewController {
     }
     
     @objc func seeAllButtonClicked(sender:UIButton){
-        presenter?.showNowPlayingSeeAllMovies(from: self)
+        presenter?.showNowPlayingSeeAllMovies(from: self,with: nowPlayingMovies)
     }
     
 }

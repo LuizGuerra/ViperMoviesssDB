@@ -22,21 +22,16 @@ class MovieHomeScreenRouter: MovieHomeScreenRouterProtocol {
         
     }
     
-    func showNowPlayingSeeAllMovies(from view: UIViewController) {
+    func showNowPlayingSeeAllMovies(from view: UIViewController,with movie: [GlobalMovie]?) {
         
         print("showNowPlayingSeeAllMovies")
         
         let nowPlayingStoryBoard = UIStoryboard(name: "NowPlaying", bundle: nil)
         let nowPlayingVC = nowPlayingStoryBoard.instantiateViewController(withIdentifier: "nowPlayingViewController") as! NowPlayingView
         
-        NowPlayingRouter.homeScreenModuleCreator(playingNowRef: nowPlayingVC)
+        NowPlayingRouter.homeScreenModuleCreator(playingNowRef: nowPlayingVC, and: movie)
         
         view.navigationController?.pushViewController(nowPlayingVC, animated: false)
-        
-    }
-    
-    func showPopularMoviesScreen(from view: UIViewController) {
-        
         
     }
     

@@ -26,8 +26,8 @@ class MovieHomeScreenPresenter: MovieHomeScreenPresenterProtocol{
         wireframe?.showMovieDetails(with: movie, from: view)
     }
     
-    func showNowPlayingSeeAllMovies(from view: UIViewController) {
-        wireframe?.showNowPlayingSeeAllMovies(from: view)
+    func showNowPlayingSeeAllMovies(from view: UIViewController,with movie: [GlobalMovie]?) {
+        wireframe?.showNowPlayingSeeAllMovies(from: view, with: movie)
 
     }
     

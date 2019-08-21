@@ -11,10 +11,14 @@ import UIKit
 /// NowPlaying Module Presenter
 class NowPlayingPresenter: NowPlayingPresenterProtocol {
     
+    
+    
     var view: NowPlayingViewProtocol?
     var interactor: NowPlayingInteractorProtocol?
     var wireframe: NowPlayingRouterProtocol?
+    var movies: [GlobalMovie]?
     
-    
-    
+    func viewDidLoad() {
+        view?.showNowPlayingMovies(with: movies)
+    }
 }
