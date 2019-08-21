@@ -85,10 +85,10 @@ extension MovieHomeScreenView: MovieHomeScreenViewProtocol {
     
     func showPopularMovies(with movies: [GlobalMovie]?){
         popularMovies = movies
-        
-        tableView.reloadInputViews()
-        tableView.reloadData()
-        
+        DispatchQueue.main.async {
+            self.tableView.reloadInputViews()
+            self.tableView.reloadData()
+        }
     }
 }
 
@@ -214,7 +214,8 @@ extension MovieHomeScreenView : UITableViewDelegate,
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("Selected \(indexPath)")
+      
+        presenter?.showMovieDetails(with: popularMovies?[indexPath.row], from: self)
     }
     
     
