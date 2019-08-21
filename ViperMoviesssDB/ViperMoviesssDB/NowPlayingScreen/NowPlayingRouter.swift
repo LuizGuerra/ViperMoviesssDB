@@ -12,10 +12,11 @@ import UIKit
 class NowPlayingRouter: NowPlayingRouterProtocol {
     
     // Creating Home Screen module
-    class func homeScreenModuleCreator(playingNowRef: NowPlayingView) {
+    class func homeScreenModuleCreator(playingNowRef: NowPlayingView,and movies:[GlobalMovie]?) {
         let presenter: NowPlayingPresenterProtocol = NowPlayingPresenter()
         
         playingNowRef.presenter = presenter
+        playingNowRef.presenter?.movies = movies
         playingNowRef.presenter?.wireframe = NowPlayingRouter()
         playingNowRef.presenter?.view = playingNowRef
         playingNowRef.presenter?.interactor = NowPlayingInteractor()

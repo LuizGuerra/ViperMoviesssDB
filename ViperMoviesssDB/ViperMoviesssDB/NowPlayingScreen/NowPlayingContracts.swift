@@ -14,6 +14,8 @@ import UIKit
 protocol NowPlayingViewProtocol: class {
     // Update UI with value returned.
     /// Set the view Object of Type NowPlayingEntity
+    
+    func showNowPlayingMovies(with: [GlobalMovie]?)
 }
 
 //MARK: Interactor -
@@ -30,6 +32,9 @@ protocol NowPlayingPresenterProtocol {
     var interactor: NowPlayingInteractorProtocol? {get set}
     var view: NowPlayingViewProtocol? {get set}
     var wireframe: NowPlayingRouterProtocol? {get set}
+    var movies: [GlobalMovie]? {get set}
+    
+    func viewDidLoad()
    
 }
 
