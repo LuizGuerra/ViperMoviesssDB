@@ -11,21 +11,18 @@ import UIKit
 /// MovieHomeScreen Module Presenter
 class MovieHomeScreenPresenter: MovieHomeScreenPresenterProtocol{
     
-    
-
-   
     var view: MovieHomeScreenViewProtocol?
     var interactor: MovieHomeScreenInputInteractorProtocol?
     var wireframe: MovieHomeScreenRouterProtocol?
     
     func viewDidLoad() {
         print("viewDidLoad()")
-        
+ 
         interactor?.getPlayingNowMovies()
         interactor?.getPopularMovies()
     }
     
-    func showMovieDetails(with movie: Result?, from view: UIViewController) {
+    func showMovieDetails(with movie: GlobalMovie?, from view: UIViewController) {
         wireframe?.showMovieDetails(with: movie, from: view)
     }
     
@@ -34,17 +31,19 @@ class MovieHomeScreenPresenter: MovieHomeScreenPresenterProtocol{
 
     }
     
+   
+    
 }
 
 // Communication from interactor
 extension MovieHomeScreenPresenter: MovieHomeScreenOutputInteractorProtocol {
     
-    
-    func popularMoviesDidFetch(movies: [Result]?) {
+
+    func popularMoviesDidFetch(movies: [GlobalMovie]?) {
         view?.showPopularMovies(with: movies)
     }
     
-    func nowPlayingMoviesDidFetch(movies: [Result]?) {
+    func nowPlayingMoviesDidFetch(movies: [GlobalMovie]?) {
         print("nowPlayingMoviesDidFetch")
         //print(movies)
         view?.showNowPlayingMovies(with: movies)

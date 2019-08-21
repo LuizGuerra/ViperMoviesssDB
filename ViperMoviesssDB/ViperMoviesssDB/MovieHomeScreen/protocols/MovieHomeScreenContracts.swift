@@ -12,8 +12,9 @@ import UIKit
 
 protocol MovieHomeScreenViewProtocol: class {
     // PRESENTER -> VIEW
-    func showNowPlayingMovies(with movies: [Result]?)
-    func showPopularMovies(with movies: [Result]?)
+    func showNowPlayingMovies(with movies: [GlobalMovie]?)
+    func showPopularMovies(with movies: [GlobalMovie]?)
+ 
 }
 
 //MARK: - Interactor
@@ -24,12 +25,13 @@ protocol MovieHomeScreenInputInteractorProtocol: class {
     //Presenter -> Interactor
     func getPlayingNowMovies()
     func getPopularMovies()
+    
 }
 
 protocol MovieHomeScreenOutputInteractorProtocol: class {
     //Interactor -> Presenter
-    func popularMoviesDidFetch(movies:[Result]?)
-    func nowPlayingMoviesDidFetch(movies:[Result]?)
+    func popularMoviesDidFetch(movies:[GlobalMovie]?)
+    func nowPlayingMoviesDidFetch(movies:[GlobalMovie]?)
 }
 
 
@@ -44,9 +46,9 @@ protocol MovieHomeScreenPresenterProtocol {
     
     func viewDidLoad()
     
-    func showMovieDetails(with movie: Result?, from view: UIViewController)
+    func showMovieDetails(with movie: GlobalMovie?, from view: UIViewController)
     func showNowPlayingSeeAllMovies(from view:UIViewController)
-    
+
     
 }
 
@@ -55,7 +57,7 @@ protocol MovieHomeScreenPresenterProtocol {
 protocol MovieHomeScreenRouterProtocol {
     
     //Presenter -> Wireframe
-    func showMovieDetails(with movie:Result?,from view:UIViewController)
+    func showMovieDetails(with movie:GlobalMovie?,from view:UIViewController)
     func showNowPlayingSeeAllMovies(from view:UIViewController)
     
 }

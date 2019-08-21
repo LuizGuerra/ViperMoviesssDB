@@ -24,5 +24,4 @@ class MovieHomeScreenInteractor:  MovieHomeScreenInputInteractorProtocol{
             self.presenter?.popularMoviesDidFetch(movies: result)
         }
     }
-
 }

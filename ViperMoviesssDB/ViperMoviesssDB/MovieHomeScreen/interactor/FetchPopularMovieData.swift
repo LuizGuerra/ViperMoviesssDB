@@ -12,7 +12,9 @@ final class FetchPopularMovieData: FetchPopularMooviesProtocol {
     
     static let shared:FetchPopularMovieData = FetchPopularMovieData()
     
-    func fetchData(completion: @escaping ([Result]?)->Void) {
+    var results:[GlobalMovie]?
+    
+    func fetchData(completion: @escaping ([GlobalMovie]?)->Void) {
         
         guard let url = URL(string: "https://api.themoviedb.org/3/movie/popular?api_key=e7874dc70ec5827126c27e68c1c85962&language=en-US&page=1") else { return }
         
@@ -21,12 +23,37 @@ final class FetchPopularMovieData: FetchPopularMooviesProtocol {
             if let data = data {
                 guard let jsonAsString = String(data: data, encoding: .utf8)?.data(using: .utf8) else { return }
                 do {
-
                     let pr = try JSONDecoder().decode(PopularMoviesResult.self, from: jsonAsString)
-                    print(pr)
+                    self.results = [GlobalMovie]()
+                    
+                    let downloadAlbumImagesGroup = DispatchGroup()
+                    
+                    
+                    for result in pr.results{
+                        downloadAlbumImagesGroup.enter()
+                        
+                        
+                        FetchMovieData.shared.fetchImage(posterPath: result.posterPath, completion: { imageData in
+                            
+                            let movie = GlobalMovie(title: result.title,
+                                                    overview: result.overview,
+                                                    voteAverage: result.voteAverage,
+                                                    albumImage: imageData)
+                            self.results?.append(movie)
+                            
+                            downloadAlbumImagesGroup.leave()
+                        })
+                        
+                    }
+                    downloadAlbumImagesGroup.notify(queue: DispatchQueue.main){
+                        print("Loaded all album images ")
+                        completion(self.results)
+                    }
+
                 } catch {
                     print(error.localizedDescription)
                     print("error3")
+                    completion(nil)
                 }
             }
             }.resume()
@@ -36,20 +63,15 @@ final class FetchPopularMovieData: FetchPopularMooviesProtocol {
 }
 
 extension FetchPopularMovieData: FetchImageDataProtocol {
-    
-    
-//  Can return empty data, if returns empty data, set "could not load image"
-    func fetchImage(posterPath: String) -> Data {
-        
-        guard let url = URL(string: "https://image.tmdb.org/t/p/w500\(posterPath)") else { return Data() }
+    func fetchImage(posterPath: String, completion: @escaping (Data) -> Void) {
+        guard let url = URL(string: "https://image.tmdb.org/t/p/w500\(posterPath)") else { return completion(Data())}
         
         URLSession.shared.dataTask(with: url) { data, reponse, error in
             guard let imageData = data else { return }
-            DispatchQueue.main.async {
-                return imageData
-            }
-            }.resume()
-        return Data()
+            completion(imageData)
+
     }
     
+    
+    }
 }

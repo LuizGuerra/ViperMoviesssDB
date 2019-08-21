@@ -12,7 +12,7 @@ import UIKit
 class MovieDetailsRouter: MovieDetailsRouterProtocol {
     
     // Creating Home Screen module
-    class func movieDetailsModuleCreator(movieDetailsRef: MovieDetailsView, and movie: Result?) {
+    class func movieDetailsModuleCreator(movieDetailsRef: MovieDetailsView, and movie: GlobalMovie?) {
         let presenter:MovieDetailsPresenterProtocol = MovieDetailsPresenter()
         
         

@@ -10,6 +10,6 @@ import Foundation
 
 protocol FetchAllMoviesDataProcol {
     
-    func fetchData (completion: @escaping ([Result]?)->Void)
+    func fetchData (completion: @escaping ([GlobalMovie]?)->Void)
     
 }

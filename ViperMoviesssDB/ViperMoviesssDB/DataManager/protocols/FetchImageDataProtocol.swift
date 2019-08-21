@@ -10,6 +10,6 @@ import Foundation
 
 protocol FetchImageDataProtocol {
     
-    func fetchImage (posterPath: String) -> Data
+    func fetchImage(posterPath: String,completion: @escaping (Data)->Void)
     
 }

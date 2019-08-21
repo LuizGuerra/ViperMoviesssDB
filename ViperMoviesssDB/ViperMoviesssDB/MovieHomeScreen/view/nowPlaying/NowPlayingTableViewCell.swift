@@ -18,7 +18,7 @@ class NowPlayingTableViewCell: UITableViewCell, UICollectionViewDelegateFlowLayo
     let cellReuseId = "NowPlayingCollectionViewCell"
     
     weak var cellDelegate:NowPlayingCollectionViewCellDelegate?
-    var movies:[Result]?
+    var movies:[GlobalMovie]?
     
     @IBOutlet weak var mCollectionView: UICollectionView!
     override func awakeFromNib() {
@@ -60,14 +60,19 @@ extension NowPlayingTableViewCell: UICollectionViewDataSource,
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        print("Movies count = \(movies?.count ?? -1)")
         return movies?.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellReuseId, for: indexPath) as? NowPlayingCollectionViewCell
-        cell?.title.text = movies?[indexPath.row].title ?? ""
+        cell?.title.text = movies?[indexPath.row].title
         cell?.votes.text = String(movies?[indexPath.row].voteAverage ?? 0)
+        
+        if let imageData = movies?[indexPath.row].albumImage{
+            cell?.albumImage.image = UIImage(data: imageData)
+        }
         
         return cell!
         

@@ -25,6 +25,12 @@
                             <constraint firstAttribute="height" constant="118" id="EXN-Tx-eht"/>
                             <constraint firstAttribute="width" constant="79" id="WA2-eK-BxN"/>
                         </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                <integer key="value" value="10"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBound" value="YES"/>
+                        </userDefinedRuntimeAttributes>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Spider-Man: Far from Home" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hux-SA-6CB">
                         <rect key="frame" x="103" y="20" width="296" height="17"/>
@@ -42,7 +48,7 @@
                         <rect key="frame" x="101" y="102" width="17" height="13"/>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="7.8" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xaL-ep-wep">
-                        <rect key="frame" x="117" y="101" width="296.5" height="15"/>
+                        <rect key="frame" x="117" y="101" width="297" height="15"/>
                         <fontDescription key="fontDescription" type="system" weight="light" pointSize="12"/>
                         <color key="textColor" red="0.59215686274509804" green="0.59215686274509804" blue="0.59215686274509804" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
