@@ -52,8 +52,6 @@ class MovieDetailsView: UIViewController {
 extension MovieDetailsView: MovieDetailsViewProtocol {
     func showMovieDetails(with movie: GlobalMovie?) {
         self.movie = movie
-        print("Movie from home screen")
-        print(movie)
         DispatchQueue.main.async {
             self.mTableView.reloadData()
         }
@@ -118,6 +116,9 @@ UITableViewDataSource{
             headerView.titleLabel.text = movie?.title
             headerView.loadingIndicator.startAnimating()
             headerView.votesAverage.text = String(movie?.voteAverage ?? 0)
+            if let imageData = movie?.albumImage{
+                headerView.albumImage.image = UIImage(data: imageData)
+            }
             
             return headerView
         }
