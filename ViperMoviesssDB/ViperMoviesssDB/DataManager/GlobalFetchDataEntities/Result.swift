@@ -15,7 +15,7 @@ struct Result: Codable {
     let title: String
     let popularity: Double
     let posterPath: String
-    let originalLanguage: OriginalLanguage
+    let originalLanguage: String
     let originalTitle: String
     let genreIDS: [Int]
     let backdropPath: String
